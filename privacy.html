@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Privacy Policy · Dear Clock</title>
+<meta name="description" content="Privacy Policy for Dear Clock (貴鐘). No personal data collected: no analytics, no tracking, no ads, no accounts. 隱私權政策 · プライバシーポリシー">
+<link rel="canonical" href="https://rarakumoai.github.io/dear-clock/privacy.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F1EEE6'/%3E%3Crect x='7' y='10' width='50' height='28' rx='5' fill='%2334332F'/%3E%3Crect x='10' y='13' width='44' height='22' rx='3' fill='%23B8C0A4'/%3E%3Crect x='9' y='44' width='46' height='10' rx='4' fill='%23D8D3C7'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#EFEBE2;--dot:rgba(70,58,36,.075);
+  --surface:#FAF8F3;--ink:#2B2924;--ink-2:#5C574C;--rule:#DDD6C7;
+  --link:#1C6B58;--link-hover:#0F4436;
+  --plate:#E6E1D5;--plate-edge:#CBC3B1;--screw-1:#B5B1A8;--screw-2:#6E6B64;
+  --cap-top:#FDFCF9;--cap-bottom:#E6E1D5;--cap-edge:#B7B0A1;--cap-ink:#4E4A41;--cap-line:rgba(255,255,255,.75);
+  --seal:#C8372D;
+  --paper:#FBF9F3;--paper-ink:#2E2B26;--paper-link:#1C6B58;
+  --shadow:0 1px 2px rgba(60,48,28,.10),0 8px 24px rgba(60,48,28,.07);
+  --round:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#1D1D20;--dot:rgba(255,255,255,.035);
+    --surface:#28282C;--ink:#ECE9E2;--ink-2:#C9C6BE;--rule:#3A3A40;
+    --link:#6FE3C8;--link-hover:#A6F5DC;
+    --plate:#303034;--plate-edge:#4A4A50;--screw-1:#9A9892;--screw-2:#55534F;
+    --cap-top:#3A3A3F;--cap-bottom:#2A2A2E;--cap-edge:#0A0A0B;--cap-ink:#D6D8DC;--cap-line:rgba(255,255,255,.08);
+    --paper:#E9E5DA;--paper-ink:#2E2B26;--paper-link:#17594A;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 8px 24px rgba(0,0,0,.28);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1px,transparent 1.5px);background-size:6px 6px;color:var(--ink);font:400 1.0625rem/1.65 -apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",system-ui,sans-serif;overflow-wrap:break-word}
+:lang(zh){font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+:lang(ja){font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif}
+section:lang(zh),section:lang(ja){line-height:1.85}
+main{flex:1}
+.wrap{width:100%;max-width:46rem;margin:0 auto;padding:0 16px}
+a{color:var(--link);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--link-hover)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:8px;z-index:10;box-shadow:var(--shadow)}
+.skip:focus{top:8px}
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{max-width:72rem;display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding-top:8px;padding-bottom:10px}
+.mark{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;padding:8px 0;font:800 .9375rem/1 var(--round);letter-spacing:.22em;white-space:nowrap}
+.mark:hover{color:var(--ink)}
+.seal{display:inline-flex;align-items:center;justify-content:center;writing-mode:vertical-rl;width:24px;height:34px;border-radius:4px;background:var(--seal);color:#FFF7EE;font:700 11px/1.05 "PingFang TC","Noto Sans TC",sans-serif;letter-spacing:0;transform:rotate(-4deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-left:auto}
+.site-nav a{display:inline-block;color:var(--ink-2);text-decoration:none;padding:10px 0}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.4em}
+.langs{display:flex;flex-wrap:wrap;gap:10px;flex-basis:100%;padding:2px 0 4px}
+@media (min-width:860px){.langs{flex-basis:auto}}
+.kc{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:10px;background:linear-gradient(var(--cap-top),var(--cap-bottom));border:1px solid var(--cap-line);box-shadow:0 4px 0 var(--cap-edge),0 6px 10px rgba(0,0,0,.12);color:var(--cap-ink);font:800 .8125rem/1 var(--round);letter-spacing:.06em;text-decoration:none;margin-bottom:4px;transition:transform .06s,box-shadow .06s}
+.kc:hover{color:var(--cap-ink)}
+.kc:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cap-edge),0 2px 4px rgba(0,0,0,.12)}
+h1,h2,h3{color:var(--ink);line-height:1.3;text-wrap:balance}
+h1{font:800 clamp(1.75rem,6vw,2.375rem)/1.2 var(--round);letter-spacing:-.01em;margin:32px 0 28px}
+h1 .alt{display:block;font-size:.55em;font-weight:700;color:var(--ink-2);letter-spacing:.04em;margin-top:8px}
+h2{font-size:1.375rem;margin:0 0 4px}
+h3{font-size:1.0625rem;margin:2em 0 .4em}
+p,ul,ol,dl{margin:0 0 1em}
+ul,ol{padding-left:1.4em}
+li{margin:.3em 0}
+.meta{color:var(--ink-2);font-size:.9375rem;margin:0 0 1.25em}
+.sheet{background:var(--surface);border-radius:18px;padding:24px 20px 12px;box-shadow:var(--shadow);margin:0 0 28px;scroll-margin-top:16px}
+@media (min-width:640px){.sheet{padding:36px 40px 20px}}
+.kicker{display:flex;align-items:center;gap:8px;font:800 .75rem/1 var(--mono);letter-spacing:.2em;color:var(--ink-2);margin:0 0 14px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF8A1E}
+.plate{position:relative;background:var(--plate);border:1px solid var(--plate-edge);border-radius:10px;padding:14px 54px 14px 16px;margin:0 0 1.5em;font:500 .8125rem/1.6 var(--mono);color:var(--ink-2);letter-spacing:.02em}
+.plate::before,.plate::after{content:"";position:absolute;right:16px;width:18px;height:18px;border-radius:50%;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)) center/2px 11px no-repeat,linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)) center/11px 2px no-repeat,linear-gradient(135deg,var(--screw-1),var(--screw-2));transform:rotate(22deg)}
+.plate::before{top:14px}
+.plate::after{bottom:14px}
+.plate-title{font-weight:800;font-size:.9375rem;color:var(--ink);margin:0 0 6px}
+.plate dl{margin:0}
+.plate dl div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--plate-edge);padding:2px 0}
+.plate dl div:last-child{border-bottom:0}
+.plate dt,.plate dd{margin:0}
+.plate dd{font-weight:800;color:var(--ink);text-align:right}
+.lead{font-size:1.125rem}
+.receipt{background:var(--paper);color:var(--paper-ink);font:500 .9375rem/1.7 var(--mono);padding:18px 20px 20px;margin:1.75em 4px 1.5em;box-shadow:0 6px 16px rgba(0,0,0,.16);transform:rotate(-.6deg)}
+.receipt h3{color:var(--paper-ink);margin:0 0 .35em;font-family:inherit}
+.receipt p{margin:0 0 .4em}
+.receipt a{color:var(--paper-link);font-weight:700}
+.foot{border-top:1px solid var(--rule);margin-top:16px;padding:24px 0 44px;color:var(--ink-2);font-size:.8125rem;line-height:1.6}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-bottom:12px}
+.foot nav a{display:inline-block;padding:8px 0}
+.foot p{margin:0 0 .5em}
+@media print{.top,.foot nav,.skip{display:none}body{background:#fff;color:#000}.sheet{box-shadow:none;padding:0}.receipt{transform:none;box-shadow:none;border:1px dashed #999}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="./"><span class="seal" lang="zh-Hant-TW" aria-hidden="true">貴鐘</span>DEAR CLOCK</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+    <nav class="langs" aria-label="Language / 語言 / 言語">
+      <a class="kc" href="#en" hreflang="en" lang="en">English</a>
+      <a class="kc" href="#zh" hreflang="zh-Hant-TW" lang="zh-Hant-TW">繁體中文</a>
+      <a class="kc" href="#ja" hreflang="ja" lang="ja">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Privacy Policy <span class="alt"><span lang="zh-Hant-TW">隱私權政策</span> · <span lang="ja">プライバシーポリシー</span></span></h1>
+
+    <!-- ============ English ============ -->
+    <section class="sheet" id="en" lang="en" aria-labelledby="en-title">
+      <p class="kicker">ENGLISH</p>
+      <h2 id="en-title">Dear Clock Privacy Policy</h2>
+      <p class="meta">Effective date: <time datetime="2026-10-17">October 17, 2026</time></p>
+
+      <aside class="plate" aria-label="Summary">
+        <p class="plate-title">MODEL DC-1999</p>
+        <dl>
+          <div><dt>DATA COLLECTED</dt><dd>NONE</dd></div>
+          <div><dt>TRACKING</dt><dd>NONE</dd></div>
+          <div><dt>ADS</dt><dd>NONE</dd></div>
+          <div><dt>ACCOUNTS</dt><dd>NONE</dd></div>
+        </dl>
+      </aside>
+
+      <p class="lead"><strong>The short version:</strong> Dear Clock is a desk clock. It does not collect, send, sell or share any personal information. Everything you set up in the app stays on your device.</p>
+
+      <h3>1. Who makes Dear Clock</h3>
+      <p>Dear Clock (<span lang="zh-Hant-TW">貴鐘</span>) is made by Chih-Chieh Han (<span lang="zh-Hant-TW">韓志杰</span>), an independent developer (“we”, “us”). This policy covers the Dear Clock app for iOS, including the snooze countdown it shows on the Lock Screen and in the Dynamic Island (a Live Activity), and this website.</p>
+
+      <h3>2. Information we collect</h3>
+      <p>None. Dear Clock has no sign-up and no account. It contains no analytics, crash-reporting or advertising code, does no tracking, and does not connect to any server run by us (we don’t have one). We keep no database of users, because there is no user data to keep.</p>
+
+      <h3>3. What stays on your device</h3>
+      <p>To work like a clock, the app remembers a few things in its own storage on your device:</p>
+      <ul>
+        <li>your settings: clock model, 12- or 24-hour time, button sounds, hourly beep-beep and keep the screen on;</li>
+        <li>the text you type into the label maker, and the brand printed on the front;</li>
+        <li>whether you have peeled off the protective film and the sale sticker, and whether you have put away the hang tag;</li>
+        <li>your alarm time and repeat days;</li>
+        <li>a small counter, so the notes printed by the SNOOZE·LIGHT button take turns;</li>
+        <li>whether you own The Whole Shelf, so unlocked models appear right away at launch (the App Store remains the record of your purchase);</li>
+        <li>the dates of the last few days you opened the app (10 at most), so it asks for an App Store rating no more than once per version, and only after you have used it on a few different days.</li>
+      </ul>
+      <p>The app never sends this information off your device, and we cannot see it. Deleting the app deletes it. If you back up your device to iCloud or a computer, iOS may include this data in your own backup. That backup is handled by you and Apple, not by us.</p>
+
+      <h3>4. Alarm permission</h3>
+      <p>The first time you set an alarm, iOS asks whether Dear Clock may schedule alarms. We use this permission only to schedule, change, snooze and cancel the one alarm you set. iOS keeps the alarm and rings it on your device, and the snooze countdown is also produced on your device.</p>
+      <p>You can change this permission at any time in the Settings app. Dear Clock does not ask for your location, contacts, photos, camera, microphone or any other permission.</p>
+
+      <h3>5. Purchases and Apple</h3>
+      <p>The Whole Shelf and the two tips (One AA Battery and A Real Cheap Clock) are In-App Purchases. Apple processes them through the App Store. We never receive your name, email address, payment details or Apple Account information. The app only asks the App Store, on your device, which items you own, so it can unlock models and restore purchases. <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> applies to purchases. The sales reports Apple gives developers are aggregated and do not identify you.</p>
+      <p>If you have chosen in your device settings to share analytics with app developers, Apple may give us anonymous crash reports and aggregated usage statistics. You and Apple control this, and it does not identify you.</p>
+
+      <h3>6. Sharing with third parties</h3>
+      <p>We do not sell, rent, trade or share personal information with anyone, because the app does not collect any. The app contains no third-party SDKs.</p>
+
+      <h3>7. Your choices and rights</h3>
+      <p>Because we do not collect or hold personal data about you, there is nothing for us to access, correct, export or delete on request. You stay in control: change the settings in the app, turn off the alarm permission in the Settings app, or delete the app to erase everything it stored. If you have a question about your privacy rights, email us and we will reply.</p>
+
+      <h3>8. Children</h3>
+      <p>Dear Clock is suitable for all ages. We do not knowingly collect personal information from anyone, including children, because we do not collect any at all. Purchases by children are covered by Apple’s parental controls, such as Ask to Buy.</p>
+
+      <h3>9. This website</h3>
+      <p>This website is hosted on GitHub Pages. It uses no cookies, analytics or trackers, and loads nothing from other sites. As the host, GitHub may process technical data such as your IP address to deliver and secure the site; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
+
+      <h3>10. Changes to this policy</h3>
+      <p>If this policy changes, we will post the new version on this page and update the effective date above. If a future version of the app ever needed to collect any data, we would update this policy before that version is released, and say so clearly.</p>
+
+      <div class="receipt">
+        <h3>11. Contact</h3>
+        <p>Questions about privacy? Email <a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Privacy">yayoi991331@gmail.com</a>.</p>
+        <p>Developer: Chih-Chieh Han (<span lang="zh-Hant-TW">韓志杰</span>)</p>
+      </div>
+    </section>
+
+    <!-- ============ 繁體中文 ============ -->
+    <section class="sheet" id="zh" lang="zh-Hant-TW" aria-labelledby="zh-title">
+      <p class="kicker">繁體中文</p>
+      <h2 id="zh-title">貴鐘隱私權政策</h2>
+      <p class="meta">生效日期：<time datetime="2026-10-17">2026 年 10 月 17 日</time></p>
+
+      <aside class="plate" aria-label="摘要">
+        <p class="plate-title">型號 DC-1999</p>
+        <dl>
+          <div><dt>蒐集資料</dt><dd>無</dd></div>
+          <div><dt>追蹤</dt><dd>無</dd></div>
+          <div><dt>廣告</dt><dd>無</dd></div>
+          <div><dt>帳號</dt><dd>無</dd></div>
+        </dl>
+      </aside>
+
+      <p class="lead"><strong>簡單說：</strong>貴鐘就是一台桌鐘。它不蒐集、不傳送、不販售，也不分享任何個人資料。你在 App 裡設定的一切，都只留在你的裝置上。</p>
+
+      <h3>1. 誰做了貴鐘</h3>
+      <p>貴鐘（<span lang="en">Dear Clock</span>）由獨立開發者韓志杰（<span lang="en">Chih-Chieh Han</span>，以下稱「我們」）開發。本政策適用於 iOS 版貴鐘 App（包括貪睡時顯示在鎖定畫面和動態島上的倒數，也就是「即時動態」），以及本網站。</p>
+
+      <h3>2. 我們蒐集的資料</h3>
+      <p>沒有。貴鐘不需要註冊，也沒有帳號。App 裡沒有任何分析、當機回報或廣告程式碼，不做任何追蹤，也不會連到我們的伺服器（我們根本沒有伺服器）。我們手上沒有使用者資料庫，因為沒有任何使用者資料。</p>
+
+      <h3>3. 留在你裝置上的資料</h3>
+      <p>為了像一台鐘一樣運作，App 會把下列少量資料存在它自己的本機儲存空間裡：</p>
+      <ul>
+        <li>你的設定：機型、12 或 24 小時制、按鍵音、整點嗶嗶、螢幕保持亮著；</li>
+        <li>你在標籤機輸入的文字，以及印在正面的品牌名稱；</li>
+        <li>保護膜和特價貼紙撕掉了沒有，以及平放時出現的吊牌收起來了沒有；</li>
+        <li>鬧鐘時間和重複的日子；</li>
+        <li>一個小小的計數器，讓 SNOOZE·LIGHT 按鍵印出的小紙條輪流出現；</li>
+        <li>你是否已購買「整排貨架」，讓已解鎖的機型一打開就能用（購買紀錄仍以 App Store 為準）；</li>
+        <li>最近幾天打開 App 的日期（最多 10 天），讓 App 每個版本最多只請你到 App Store 評分一次，而且只在你用過好幾天之後才問。</li>
+      </ul>
+      <p>App 不會把這些資料傳出你的裝置，我們也看不到。刪除 App，這些資料就會一起刪除。如果你用 iCloud 或電腦備份裝置，iOS 可能會把這些資料納入你自己的備份；那份備份由你和 Apple 管理，我們無法取得。</p>
+
+      <h3>4. 鬧鐘權限</h3>
+      <p>第一次設定鬧鐘時，iOS 會詢問是否允許貴鐘排定鬧鐘。這項權限只用來排定、修改、貪睡和取消你設定的那一組鬧鐘。鬧鐘由 iOS 保存，並在你的裝置上響鈴；貪睡倒數也是在裝置上產生的。</p>
+      <p>你隨時可以到「設定」App 更改這項權限。貴鐘不會要求取用你的位置、聯絡資訊、照片、相機、麥克風或其他任何權限。</p>
+
+      <h3>5. 購買與 Apple</h3>
+      <p>「整排貨架」和兩種贊助（「一顆三號電池」、「一台真的百元鐘」）都是 App 內購買，由 Apple 透過 App Store 處理。我們不會收到你的姓名、電子郵件、付款資訊或 Apple 帳號資料。App 只會在你的裝置上向 App Store 確認你擁有哪些項目，以便解鎖機型和恢復購買。購買相關事宜適用 <a href="https://www.apple.com/tw/legal/privacy/">Apple 隱私權政策</a>。Apple 提供給開發者的銷售報表是彙總過的資料，無法辨識出你是誰。</p>
+      <p>如果你在裝置設定中選擇與 App 開發者分享分析資料，Apple 可能會提供我們匿名的當機報告和彙總的使用統計。這部分由你和 Apple 控制，同樣無法辨識出你。</p>
+
+      <h3>6. 與第三方分享</h3>
+      <p>我們不會出售、出租、交換或與任何人分享個人資料，因為 App 根本沒有蒐集。App 裡也沒有任何第三方 SDK。</p>
+
+      <h3>7. 你的選擇與權利</h3>
+      <p>因為我們沒有蒐集或保存任何關於你的個人資料，所以沒有資料可以供你查詢、更正、匯出或要求刪除。一切都在你手上：在 App 裡更改設定、到「設定」App 關閉鬧鐘權限，或刪除 App 來清除它儲存的所有內容。如果你對自己的隱私權利有疑問，歡迎來信，我們會回覆。</p>
+
+      <h3>8. 兒童</h3>
+      <p>貴鐘適合所有年齡使用。我們不會在知情的情況下蒐集任何人（包括兒童）的個人資料，因為我們什麼都不蒐集。兒童的購買行為受 Apple 的家長控制功能規範，例如「購買前先詢問」。</p>
+
+      <h3>9. 本網站</h3>
+      <p>本網站架設在 GitHub Pages 上，沒有使用任何 Cookie、分析工具或追蹤程式，也不會從其他網站載入任何內容。網站主機 GitHub 為了提供服務和維護安全，可能會處理你的 IP 位址等技術資料，詳見 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" hreflang="en">GitHub 一般隱私權聲明</a>（英文）。</p>
+
+      <h3>10. 政策變更</h3>
+      <p>如果本政策有所變更，我們會在這個頁面公布新版本，並更新上方的生效日期。如果未來的 App 版本需要蒐集任何資料，我們會在該版本推出前先更新本政策，並清楚說明。</p>
+
+      <div class="receipt">
+        <h3>11. 聯絡我們</h3>
+        <p>有任何隱私相關問題，請來信 <a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Privacy">yayoi991331@gmail.com</a>。</p>
+        <p>開發者：韓志杰（<span lang="en">Chih-Chieh Han</span>）</p>
+      </div>
+    </section>
+
+    <!-- ============ 日本語 ============ -->
+    <section class="sheet" id="ja" lang="ja" aria-labelledby="ja-title">
+      <p class="kicker">日本語</p>
+      <h2 id="ja-title">Dear Clock プライバシーポリシー</h2>
+      <p class="meta">施行日：<time datetime="2026-10-17">2026年10月17日</time></p>
+
+      <aside class="plate" aria-label="概要">
+        <p class="plate-title">型番 DC-1999</p>
+        <dl>
+          <div><dt>収集するデータ</dt><dd>なし</dd></div>
+          <div><dt>トラッキング</dt><dd>なし</dd></div>
+          <div><dt>広告</dt><dd>なし</dd></div>
+          <div><dt>アカウント</dt><dd>なし</dd></div>
+        </dl>
+      </aside>
+
+      <p class="lead"><strong>かんたんに言うと：</strong>Dear Clock は置き時計です。個人情報を収集、送信、販売、共有することは一切ありません。アプリで設定した内容は、すべてお使いの端末の中だけに保存されます。</p>
+
+      <h3>1. 提供者</h3>
+      <p>Dear Clock（<span lang="zh-Hant-TW">貴鐘</span>）は、個人開発者の韓志杰（Chih-Chieh Han、以下「私たち」）が開発・提供しています。本ポリシーは、iOS 用アプリ Dear Clock（スヌーズ中にロック画面と Dynamic Island に表示されるカウントダウン〔ライブアクティビティ〕を含む）と、このウェブサイトに適用されます。</p>
+
+      <h3>2. 収集する情報</h3>
+      <p>ありません。登録もアカウントも不要です。アクセス解析、クラッシュレポート、広告のためのコードは一切含まれておらず、トラッキングも行いません。私たちが運営するサーバーに接続することもありません（そもそもサーバーを持っていません）。ユーザーのデータベースもありません。保存すべきユーザーデータが存在しないためです。</p>
+
+      <h3>3. 端末内に保存される情報</h3>
+      <p>時計として動作するため、アプリは次の情報を端末内のアプリ専用の領域に保存します。</p>
+      <ul>
+        <li>設定（機種、12時間／24時間表示、ボタン操作音、毎正時にピピッ、画面をつけたままにする）</li>
+        <li>ラベルライターで入力した文字と、本体前面のブランド表記</li>
+        <li>保護フィルムと特価シールをはがしたかどうか、平らに置いたときに出るタグを閉じたかどうか</li>
+        <li>アラームの時刻と繰り返す曜日</li>
+        <li>SNOOZE·LIGHT ボタンが出す小さなレシートを順番に表示するための回数</li>
+        <li>「棚まるごと」を購入済みかどうか（起動直後から機種を使えるようにするため。購入の記録は App Store が管理します）</li>
+        <li>アプリを開いた直近の日付（最大10日分）。App Store での評価のお願いを、各バージョンにつき1回まで、何日か使っていただいた後にだけ表示するために使います。</li>
+      </ul>
+      <p>これらの情報が端末の外に送信されることはなく、私たちが見ることもできません。アプリを削除すると、これらの情報も削除されます。iCloud やコンピュータに端末をバックアップしている場合、iOS がこれらの情報をお客様自身のバックアップに含めることがあります。そのバックアップはお客様と Apple が管理するもので、私たちはアクセスできません。</p>
+
+      <h3>4. アラームの許可</h3>
+      <p>初めてアラームをセットするとき、iOS が Dear Clock にアラームのスケジュールを許可するかどうかを尋ねます。この許可は、お客様が設定した1つのアラームのセット、変更、スヌーズ、解除にのみ使用します。アラームは iOS が保存して端末上で鳴らし、スヌーズのカウントダウンも端末上で生成されます。</p>
+      <p>この許可は「設定」アプリでいつでも変更できます。位置情報、連絡先、写真、カメラ、マイクなど、その他の許可は一切求めません。</p>
+
+      <h3>5. 購入と Apple</h3>
+      <p>「棚まるごと」と2種類の差し入れ（「単三電池を1本」「本物の安い時計」）は App 内課金です。決済は Apple が App Store を通じて行います。私たちがお客様の氏名、メールアドレス、支払い情報、Apple アカウントの情報を受け取ることはありません。アプリは、機種のロック解除と購入の復元のために、どの項目を購入済みかを端末上で App Store に確認するだけです。購入には <a href="https://www.apple.com/jp/legal/privacy/">Apple のプライバシーポリシー</a>が適用されます。Apple から開発者に提供される売上レポートは集計されたもので、お客様個人を特定するものではありません。</p>
+      <p>端末の設定で App デベロッパとの解析データの共有を選択している場合、Apple から匿名のクラッシュレポートや集計された利用統計が私たちに提供されることがあります。これはお客様と Apple が管理するもので、お客様個人を特定するものではありません。</p>
+
+      <h3>6. 第三者への提供</h3>
+      <p>私たちは個人情報を販売、貸与、交換、共有しません。そもそも収集していないためです。アプリには、第三者の SDK も含まれていません。</p>
+
+      <h3>7. お客様の選択と権利</h3>
+      <p>私たちはお客様の個人データを収集・保有していないため、開示、訂正、データの書き出し、削除のご請求に対してお渡しできるデータがありません。すべてはお客様の手元にあります。アプリ内で設定を変更する、「設定」アプリでアラームの許可をオフにする、またはアプリを削除して保存された内容をすべて消去することができます。プライバシーに関する権利についてご質問があれば、メールでお問い合わせください。お返事いたします。</p>
+
+      <h3>8. お子様について</h3>
+      <p>Dear Clock はすべての年齢の方にお使いいただけます。私たちはお子様を含め、どなたの個人情報も意図的に収集することはありません。そもそも何も収集していないためです。お子様による購入は、「承認と購入のリクエスト」などの Apple のペアレンタルコントロールで管理できます。</p>
+
+      <h3>9. このウェブサイト</h3>
+      <p>このサイトは GitHub Pages でホストされています。Cookie、アクセス解析、トラッカーは使用しておらず、ほかのサイトから何かを読み込むこともありません。ホストである GitHub が、サイトの配信と安全確保のために IP アドレスなどの技術情報を処理する場合があります。詳しくは <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" hreflang="en">GitHub General Privacy Statement</a>（英語）をご覧ください。</p>
+
+      <h3>10. ポリシーの変更</h3>
+      <p>本ポリシーを変更する場合は、このページで新しい版を公開し、上記の施行日を更新します。将来のバージョンで何らかのデータを収集する必要が生じた場合は、そのバージョンの公開前に本ポリシーを更新し、その旨をはっきりとお知らせします。</p>
+
+      <div class="receipt">
+        <h3>11. お問い合わせ</h3>
+        <p>プライバシーに関するご質問は <a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Privacy">yayoi991331@gmail.com</a> までお送りください。</p>
+        <p>開発者：韓志杰（Chih-Chieh Han）</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="./">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="mailto:yayoi991331@gmail.com">yayoi991331@gmail.com</a>
+    </nav>
+    <p>© 2026 Chih-Chieh Han (<span lang="zh-Hant-TW">韓志杰</span>). Dear Clock <span lang="zh-Hant-TW">貴鐘</span>.</p>
+    <p>iPhone is a trademark of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Dear Clock is an independent app and is not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>

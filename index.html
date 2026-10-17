@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Dear Clock · 貴鐘</title>
+<meta name="description" content="Dear Clock (貴鐘): a very expensive phone, seriously pretending to be a cheap desk clock. A real alarm, plastic buttons, a peelable film. No ads, no subscription, no account, no data collected.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dear Clock · 貴鐘">
+<meta property="og:description" content="A very expensive phone, seriously pretending to be a cheap desk clock.">
+<meta property="og:url" content="https://rarakumoai.github.io/dear-clock/">
+<link rel="canonical" href="https://rarakumoai.github.io/dear-clock/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F1EEE6'/%3E%3Crect x='7' y='10' width='50' height='28' rx='5' fill='%2334332F'/%3E%3Crect x='10' y='13' width='44' height='22' rx='3' fill='%23B8C0A4'/%3E%3Crect x='9' y='44' width='46' height='10' rx='4' fill='%23D8D3C7'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#EFEBE2;--dot:rgba(70,58,36,.075);
+  --surface:#FAF8F3;--ink:#2B2924;--ink-2:#5C574C;--rule:#DDD6C7;
+  --link:#1C6B58;--link-hover:#0F4436;
+  --cap-top:#FDFCF9;--cap-bottom:#E6E1D5;--cap-edge:#B7B0A1;--cap-ink:#4E4A41;--cap-line:rgba(255,255,255,.75);
+  --seal:#C8372D;--halo:rgba(255,196,120,.42);
+  --paper:#FBF9F3;--paper-ink:#2E2B26;--paper-link:#1C6B58;
+  --shadow:0 1px 2px rgba(60,48,28,.10),0 8px 24px rgba(60,48,28,.07);
+  --round:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .22 0 0 0 0 .14 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#1D1D20;--dot:rgba(255,255,255,.035);
+    --surface:#28282C;--ink:#ECE9E2;--ink-2:#C9C6BE;--rule:#3A3A40;
+    --link:#6FE3C8;--link-hover:#A6F5DC;
+    --cap-top:#3A3A3F;--cap-bottom:#2A2A2E;--cap-edge:#0A0A0B;--cap-ink:#D6D8DC;--cap-line:rgba(255,255,255,.08);
+    --halo:rgba(246,230,200,.11);
+    --paper:#E9E5DA;--paper-ink:#2E2B26;--paper-link:#17594A;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 8px 24px rgba(0,0,0,.28);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1px,transparent 1.5px);background-size:6px 6px;color:var(--ink);font:400 1.0625rem/1.65 -apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",system-ui,sans-serif;overflow-wrap:break-word}
+:lang(zh){font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+:lang(ja){font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif}
+section:lang(zh),section:lang(ja){line-height:1.85}
+main{flex:1}
+.wrap{width:100%;max-width:72rem;margin:0 auto;padding:0 16px}
+a{color:var(--link);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--link-hover)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:8px;z-index:20;box-shadow:var(--shadow)}
+.skip:focus{top:8px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* ---------- header ---------- */
+.top{position:relative;z-index:10;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding-top:8px;padding-bottom:10px}
+.mark{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;padding:8px 0;font:800 .9375rem/1 var(--round);letter-spacing:.22em;white-space:nowrap}
+.mark:hover{color:var(--ink)}
+.seal{display:inline-flex;align-items:center;justify-content:center;writing-mode:vertical-rl;width:24px;height:34px;border-radius:4px;background:var(--seal);color:#FFF7EE;font:700 11px/1.05 "PingFang TC","Noto Sans TC",sans-serif;letter-spacing:0;transform:rotate(-4deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-left:auto}
+.site-nav a{display:inline-block;color:var(--ink-2);text-decoration:none;padding:10px 0}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.4em}
+.langs{display:flex;flex-wrap:wrap;gap:10px;flex-basis:100%;padding:2px 0 4px}
+@media (min-width:860px){.langs{flex-basis:auto}}
+.kc{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:10px;background:linear-gradient(var(--cap-top),var(--cap-bottom));border:1px solid var(--cap-line);box-shadow:0 4px 0 var(--cap-edge),0 6px 10px rgba(0,0,0,.12);color:var(--cap-ink);font:800 .8125rem/1 var(--round);letter-spacing:.06em;text-decoration:none;margin-bottom:4px;transition:transform .06s,box-shadow .06s}
+.kc:hover{color:var(--cap-ink)}
+.kc:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cap-edge),0 2px 4px rgba(0,0,0,.12)}
+
+/* ---------- seven-segment digits, shared by every clock on the page ---------- */
+.segs{display:inline-flex;align-items:center;gap:.07em}
+.dg{position:relative;display:inline-block;flex:none;width:.56em;height:1em}
+.dg>i{position:absolute;background:currentColor;opacity:var(--ghost,.07)}
+.dg>i:nth-child(1),.dg>i:nth-child(4),.dg>i:nth-child(7){left:.075em;right:.075em;height:.11em;clip-path:polygon(0 50%,.055em 0,calc(100% - .055em) 0,100% 50%,calc(100% - .055em) 100%,.055em 100%)}
+.dg>i:nth-child(1){top:0}
+.dg>i:nth-child(7){top:.445em}
+.dg>i:nth-child(4){bottom:0}
+.dg>i:nth-child(2),.dg>i:nth-child(3),.dg>i:nth-child(5),.dg>i:nth-child(6){width:.11em;height:.41em;clip-path:polygon(50% 0,100% .055em,100% calc(100% - .055em),50% 100%,0 calc(100% - .055em),0 .055em)}
+.dg>i:nth-child(2){right:0;top:.06em}
+.dg>i:nth-child(3){right:0;bottom:.06em}
+.dg>i:nth-child(5){left:0;bottom:.06em}
+.dg>i:nth-child(6){left:0;top:.06em}
+.dg:is([data-n="0"],[data-n="2"],[data-n="3"],[data-n="5"],[data-n="6"],[data-n="7"],[data-n="8"],[data-n="9"])>i:nth-child(1),
+.dg:is([data-n="0"],[data-n="1"],[data-n="2"],[data-n="3"],[data-n="4"],[data-n="7"],[data-n="8"],[data-n="9"])>i:nth-child(2),
+.dg:is([data-n="0"],[data-n="1"],[data-n="3"],[data-n="4"],[data-n="5"],[data-n="6"],[data-n="7"],[data-n="8"],[data-n="9"])>i:nth-child(3),
+.dg:is([data-n="0"],[data-n="2"],[data-n="3"],[data-n="5"],[data-n="6"],[data-n="8"],[data-n="9"])>i:nth-child(4),
+.dg:is([data-n="0"],[data-n="2"],[data-n="6"],[data-n="8"])>i:nth-child(5),
+.dg:is([data-n="0"],[data-n="4"],[data-n="5"],[data-n="6"],[data-n="8"],[data-n="9"])>i:nth-child(6),
+.dg:is([data-n="2"],[data-n="3"],[data-n="4"],[data-n="5"],[data-n="6"],[data-n="8"],[data-n="9"])>i:nth-child(7){opacity:1}
+.cl{position:relative;display:inline-block;flex:none;width:.2em;height:1em}
+.cl::before,.cl::after{content:"";position:absolute;left:.045em;width:.11em;height:.11em;background:currentColor;opacity:var(--ghost,.07)}
+.cl::before{top:.28em}
+.cl::after{top:.62em}
+.cl.on::before,.cl.on::after{opacity:1}
+@keyframes blink{0%{opacity:1}50%{opacity:0}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:8px 0 8px;overflow-x:hidden;overflow-x:clip}
+.hero>.wrap{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "stage" "more";column-gap:48px}
+@media (min-width:900px){
+  .hero>.wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-areas:"copy stage" "more stage";padding-top:28px;padding-bottom:28px}
+  .hero-copy{align-self:end}
+  .hero-more{align-self:start}
+}
+.hero-copy{grid-area:copy}
+.hero-more{grid-area:more;padding-top:14px}
+.eyebrow{margin:22px 0 16px;font:700 .75rem/1.6 var(--mono);letter-spacing:.16em;color:var(--ink-2)}
+.eyebrow::before{content:"";display:inline-block;vertical-align:.05em;width:9px;height:9px;margin-right:10px;border-radius:50%;background:#FF8A1E;box-shadow:0 0 0 4px rgba(255,138,30,.18)}
+.hero h1{display:flex;flex-wrap:wrap;align-items:center;gap:.15em .3em;margin:0 0 18px;font:900 clamp(2.75rem,11vw,5rem)/.95 var(--round);letter-spacing:-.025em}
+.big-seal{display:inline-flex;align-items:center;justify-content:center;writing-mode:vertical-rl;padding:.24em .17em;border-radius:.1em;background:var(--seal);color:#FFF7EE;font:800 .34em/1.05 "PingFang TC","Noto Sans TC",sans-serif;letter-spacing:.06em;transform:rotate(-6deg);box-shadow:inset 0 0 0 .07em rgba(255,255,255,.25),0 .05em .15em rgba(120,20,10,.25)}
+.tl-en{margin:0;max-width:26ch;font:800 clamp(1.3rem,3.8vw,1.75rem)/1.3 var(--round);letter-spacing:-.005em;text-wrap:balance}
+.tl{margin:0 0 8px;padding-left:12px;border-left:3px solid var(--rule);color:var(--ink-2);font-size:1.0625rem;line-height:1.6}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.facts li{margin:0;padding:7px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);font:700 .8125rem/1 var(--round);color:var(--ink-2)}
+.store{display:inline-flex;align-items:center;gap:12px;margin-top:20px;padding:9px 18px 9px 10px;border-radius:14px;border:2px dashed var(--ink-2);background:var(--surface);color:var(--ink);font:800 1rem/1.25 var(--round);text-decoration:none}
+.soon{display:inline-flex;align-items:center;justify-content:center;min-width:4.3em;padding:7px 8px 6px;border-radius:6px;background:linear-gradient(#C7CEB3,#AAB396);color:#1D2318;font:800 .9375rem/1 var(--mono);letter-spacing:.06em;box-shadow:0 0 0 3px #34332F;animation:blink 1s steps(1,end) infinite}
+.compat{margin:14px 0 0;color:var(--ink-2);font-size:.875rem}
+
+/* the clock */
+.stage{grid-area:stage;position:relative;min-width:0;margin:0;padding:34px 0 6px;display:flex;flex-direction:column;align-items:center}
+.halo{position:absolute;left:50%;top:42%;width:min(150%,920px);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,var(--halo),rgba(0,0,0,0) 72%);pointer-events:none;z-index:-1}
+.clock{--u:clamp(7.4px,calc((100vw - 32px) / 42),11.5px);position:relative;width:34em;margin-bottom:-4em;font-size:var(--u);perspective:190em;perspective-origin:50% 36%;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+@media (min-width:900px){.clock{--u:clamp(9px,calc((50vw - 90px) / 39),14px)}}
+.half{position:relative;height:25em;background:var(--grain),linear-gradient(#F4F1EA,#DCD7CB);transition:transform .9s cubic-bezier(.3,.7,.2,1)}
+.upper{transform-origin:50% 100%;transform:rotateX(8deg);border-radius:4em 4em .5em .5em;padding:2.2em 1.8em 0;box-shadow:inset 0 .16em 0 rgba(255,255,255,.95),inset 0 -.12em 0 rgba(0,0,0,.05)}
+.lower{transform-origin:50% 0;transform:rotateX(50deg);border-radius:.5em .5em 4em 4em;padding:2.6em 2.2em 0;box-shadow:inset 0 .1em .25em rgba(0,0,0,.06),0 .8em 0 #BBB4A4,0 1.6em 2.6em rgba(40,30,15,.30)}
+.upper::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1em;background:linear-gradient(rgba(60,48,28,0),rgba(60,48,28,.10));pointer-events:none}
+.lower::before{content:"";position:absolute;left:0;right:0;top:0;height:1.6em;border-radius:.5em .5em 0 0;background:linear-gradient(rgba(60,48,28,.2),rgba(60,48,28,0));pointer-events:none}
+.clock[data-pose="flat"] .upper,.clock[data-pose="flat"] .lower{transform:rotateX(58deg)}
+.floor{position:absolute;left:50%;top:43em;z-index:-1;width:38em;height:4.4em;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(40,30,15,.28),rgba(40,30,15,0));transition:top .9s cubic-bezier(.3,.7,.2,1);pointer-events:none}
+.clock[data-pose="flat"] .floor{top:40em}
+.brand{margin:0;padding-left:.32em;text-align:center;color:#5C574C;font:900 1.65em/1 var(--round);letter-spacing:.32em;text-shadow:0 .05em 0 rgba(255,255,255,.85),0 -.03em 0 rgba(0,0,0,.08)}
+.brand small{display:block;margin-top:.55em;font-size:.36em;font-weight:800;letter-spacing:.34em;opacity:.8}
+.bezel{position:relative;margin-top:1.2em;padding:2.1em 1em 1em;border-radius:1.5em;background:linear-gradient(#3C3B36,#2B2A27);box-shadow:0 .1em 0 rgba(255,255,255,.8),inset 0 .12em .15em rgba(255,255,255,.1),inset 0 -.2em .4em rgba(0,0,0,.45)}
+.wk{position:absolute;top:.72em;left:1em;right:1em;margin:0;padding:0 1.2em;list-style:none;display:grid;grid-template-columns:repeat(7,1fr);gap:0 .9em;text-align:center}
+.wk li{margin:0;font:800 .74em/1 var(--round);letter-spacing:.05em;color:rgba(236,233,226,.62)}
+.panel{--ghost:.07;--contrast:1;position:relative;height:12.4em;border-radius:.7em;overflow:hidden;color:#1D2318;background:linear-gradient(#C7CEB3,#AAB396);box-shadow:inset 0 .35em .7em rgba(0,0,0,.28),inset 0 -.1em .2em rgba(255,255,255,.25)}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(112deg,rgba(255,255,255,.2) 0 30%,rgba(255,255,255,0) 30.5%);pointer-events:none}
+.panel.lit{background:linear-gradient(#A6F5DC,#5ED3B5);box-shadow:inset 0 .35em .7em rgba(0,0,0,.16),0 0 2.6em rgba(94,211,181,.65)}
+.clock[data-pose="flat"] .panel{--contrast:.3;--ghost:.17}
+.ink{position:absolute;inset:0;opacity:var(--contrast);transition:opacity .7s;filter:drop-shadow(.16em .2em 0 rgba(20,26,14,.16))}
+.bars{position:absolute;top:.8em;left:1.2em;right:1.2em;display:grid;grid-template-columns:repeat(7,1fr);gap:0 .9em}
+.bars i{height:.42em;background:currentColor;opacity:var(--ghost);transform:skewX(-20deg)}
+.bars i.on{opacity:1}
+.readout{position:absolute;left:.8em;right:.8em;bottom:1.3em;height:7.4em;display:flex;align-items:flex-end;justify-content:space-between}
+.ampm{align-self:flex-start;display:flex;flex-direction:column;gap:.45em;padding-top:.2em;font:900 .95em/1 var(--round);letter-spacing:.04em}
+.ampm span{opacity:var(--ghost)}
+.ampm span.on{opacity:1}
+.main{font-size:7em;gap:.06em;transform:skewX(-4.6deg)}
+.side{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
+.bell{width:1.7em;height:1.7em;fill:currentColor;opacity:var(--ghost)}
+.bell.on{opacity:1}
+.secs{font-size:2.6em;gap:.08em;transform:skewX(-4.6deg)}
+.film{position:absolute;top:2.1em;left:1em;right:1em;bottom:1em;z-index:3;margin:0;padding:0;border:0;border-radius:.7em;cursor:grab;touch-action:pan-y;font:inherit;color:#2A2D30;background:rgba(238,240,234,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8em;transform:perspective(60em) translate(var(--dx,0px),var(--dy,0px)) rotateY(var(--ry,0deg));transform-origin:0 50%;box-shadow:0 .1em .35em rgba(0,0,0,.18)}
+.film::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(125deg,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 34%,rgba(255,255,255,.4) 35%,rgba(255,255,255,0) 50%);pointer-events:none}
+.film-segs{--ghost:0;font-size:5.4em;opacity:.5;transform:skewX(-4.6deg)}
+.film-text{padding:0 1em;text-align:center;font:800 .92em/1.25 var(--round);letter-spacing:.12em;opacity:.7}
+.peel{position:absolute;top:.8em;right:.8em;padding:.55em .95em;border-radius:2em;background:#2F7FC4;color:#fff;font:900 1.05em/1 var(--round);letter-spacing:.04em;transform:rotate(-8deg);box-shadow:0 .12em .3em rgba(0,0,0,.25)}
+.film.off{--dx:-130%;--dy:-25%;--ry:-35deg;opacity:0;pointer-events:none;transition:transform .4s ease-in,opacity .4s ease-in}
+.k{-webkit-appearance:none;appearance:none;margin:0;border:0;display:inline-flex;align-items:center;justify-content:center;gap:.45em;height:3.1em;padding:0 .4em;border-radius:.8em;cursor:pointer;color:#5C574C;font:900 1.15em/1 var(--round);letter-spacing:.1em;background:linear-gradient(#FCFBF8,#E3DED2);box-shadow:inset 0 .08em 0 #fff,0 .36em 0 #B7B0A1,0 .55em .9em rgba(60,45,20,.22);transition:transform .06s,box-shadow .06s;touch-action:manipulation}
+.k:active{transform:translateY(.3em);box-shadow:inset 0 .08em 0 #fff,0 .06em 0 #B7B0A1,0 .15em .3em rgba(60,45,20,.2)}
+.k.wide{width:100%;height:3.3em;font-size:1.3em;letter-spacing:.16em}
+.k .dot{width:.3em;height:.3em;border-radius:50%;background:currentColor;opacity:.5}
+.k svg{width:.95em;height:.95em;fill:currentColor}
+.krow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1em;margin-top:1.7em}
+.krow2{display:flex;align-items:center;justify-content:space-between;gap:1em;margin-top:1.9em;padding:0 .2em}
+.tape{-webkit-appearance:none;appearance:none;margin:0;border:0;cursor:pointer;min-width:8em;max-width:17em;overflow:hidden;white-space:nowrap;text-align:left;padding:.72em 1.1em .68em;border-radius:.16em;background:linear-gradient(#2B2B2E,#141416);color:#F3F3F0;font:900 1.2em/1 var(--round);letter-spacing:.2em;transform:rotate(-1.6deg);box-shadow:0 .14em .3em rgba(0,0,0,.35);text-shadow:0 -.06em 0 rgba(0,0,0,.75),0 .06em 0 rgba(255,255,255,.3)}
+.spot{position:relative;flex:none;width:6.8em;height:6.8em}
+.glue{position:absolute;inset:.35em;border-radius:50%;background:radial-gradient(rgba(60,48,28,.12) .06em,rgba(60,48,28,0) .1em) 0 0/.55em .55em,rgba(60,48,28,.07);box-shadow:inset 0 0 0 .14em rgba(60,48,28,.06);opacity:0;transition:opacity .3s}
+.spot.peeled .glue{opacity:1}
+.sticker{position:absolute;inset:0;margin:0;padding:0;border:0;border-radius:50%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--round);background:radial-gradient(circle at 35% 30%,#FFA54D,#FF8A1E 60%,#F07A10);transform:rotate(12deg);box-shadow:0 .12em .25em rgba(0,0,0,.25)}
+.sticker::before{content:"";position:absolute;inset:.42em;border-radius:50%;border:.12em dashed rgba(255,255,255,.85)}
+.sticker span{font-size:1.05em;font-weight:900;line-height:1;letter-spacing:.08em}
+.sticker b{font-size:1.3em;font-weight:900;line-height:1.1;letter-spacing:.02em}
+.sticker:lang(zh) b,.sticker:lang(ja) b{font-size:1.2em}
+.sticker.off{transform:translate(4em,-11em) rotate(-50deg) scale(1.2);opacity:0;pointer-events:none;transition:transform .42s ease-in,opacity .42s ease-in}
+.fine{margin:1.5em 0 0;text-align:center;white-space:nowrap;color:#5C574C;font:800 .82em/1 var(--round);letter-spacing:.1em;opacity:.85}
+.k:focus-visible,.tape:focus-visible,.sticker:focus-visible,.film:focus-visible,.tagx:focus-visible{outline:.25em solid #1C6B58;outline-offset:.2em}
+.note{position:absolute;left:50%;top:21em;z-index:6;width:max-content;max-width:24em;margin:0;padding:.85em 1.2em;background:#FBF9F3;color:#2E2B26;font:600 1.1em/1.45 var(--mono);text-align:center;box-shadow:0 .35em 1.1em rgba(0,0,0,.25);transform:translate(-50%,-.6em) rotate(-1.2deg);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s,transform .22s,visibility 0s linear .22s}
+.note.show{opacity:1;visibility:visible;transform:translate(-50%,0) rotate(-1.2deg);transition:opacity .22s,transform .22s}
+.hangtag{position:absolute;right:-1em;top:12em;z-index:5;width:12.5em;transform-origin:50% 0;transform:rotate(4deg)}
+.hangtag::before{content:"";display:block;width:.12em;height:2.2em;margin:0 auto;background:#8A7457}
+.tagcard{position:relative;padding:1em 1em .2em;border-radius:.45em;background:var(--grain),linear-gradient(#DDC7A2,#D2B98F);color:#4A3C2C;text-align:center;box-shadow:0 .3em .6em rgba(0,0,0,.25)}
+.tagcard::before{content:"";display:block;width:.9em;height:.9em;margin:0 auto .55em;border-radius:50%;border:.13em solid #6B5A44;background:#F4F1EA}
+.tagcard p{margin:0;font:800 1.15em/1.35 var(--round)}
+.tagx{-webkit-appearance:none;appearance:none;margin:0;border:0;background:none;color:#6B5A44;min-width:44px;min-height:40px;cursor:pointer;font:900 1.3em/1 var(--round)}
+@keyframes swing{0%{transform:rotate(-16deg)}45%{transform:rotate(10deg)}75%{transform:rotate(1deg)}100%{transform:rotate(4deg)}}
+.hangtag.swing{animation:swing 1.2s cubic-bezier(.3,.7,.3,1)}
+.demo-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin:30px 0 0;color:var(--ink-2);font-size:.875rem;text-align:center}
+.hint{flex-basis:100%;margin:0;font:700 .8125rem/1.45 var(--mono);letter-spacing:.03em}
+.seg{display:inline-flex;gap:4px;padding:4px;border-radius:13px;background:var(--rule)}
+.tb{-webkit-appearance:none;appearance:none;margin:0;border:0;min-height:40px;padding:0 14px;border-radius:10px;background:transparent;color:var(--ink-2);font:800 .8125rem/1 var(--round);letter-spacing:.03em;cursor:pointer}
+.tb[aria-pressed="true"]{background:linear-gradient(var(--cap-top),var(--cap-bottom));color:var(--cap-ink);box-shadow:0 2px 0 var(--cap-edge)}
+
+/* ---------- the shelf ---------- */
+.shelf{padding:56px 0 28px}
+.sec-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15em .5em;margin:0 0 8px;font:900 clamp(1.7rem,5vw,2.4rem)/1.2 var(--round)}
+.sec-title .alt{font-size:.6em;font-weight:700;color:var(--ink-2)}
+.sec-sub{margin:0 0 34px;color:var(--ink-2)}
+.sec-sub span{display:block}
+.models{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
+@media (min-width:760px){.models{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.model{container-type:inline-size;display:flex;flex-direction:column;align-items:center;margin:0;padding:0 10px}
+.mini{width:100%;height:16em;display:flex;align-items:flex-end;justify-content:center;font-size:7px;font-size:4.3cqi}
+.mb{position:relative}
+.plank{position:relative;z-index:1;align-self:stretch;height:14px;margin:0 -10px;border-radius:2px;background:linear-gradient(#80583A,#4D311E);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 8px 12px -6px rgba(0,0,0,.45)}
+.label{flex:1;width:min(100%,15rem);margin-top:-1px;padding:12px 12px 10px;border-radius:0 0 10px 10px;background:var(--surface);box-shadow:var(--shadow);text-align:center}
+.label h3{margin:0;font:800 1rem/1.25 var(--round)}
+.label .alt{margin:3px 0 8px;color:var(--ink-2);font-size:.8125rem;line-height:1.5}
+.strip{display:inline-block;white-space:nowrap;padding:5px 7px 4px;border-radius:5px;background:#1C6B58;color:#fff;font:800 .6875rem/1 var(--round);letter-spacing:.06em}
+.strip.paid{background:#C85F12}
+.demo-sticker{position:absolute;top:-.7em;right:-.9em;z-index:2;padding:.5em .7em;border:.12em solid #B3261E;border-radius:.2em;background:#FFF6D6;color:#B3261E;font:900 .72em/1 var(--round);letter-spacing:.14em;transform:rotate(9deg);box-shadow:0 .15em .3em rgba(0,0,0,.25)}
+.feet::after{content:"";position:absolute;bottom:-.6em;left:2em;right:2em;height:.6em;background:linear-gradient(90deg,#7F786B 0 2em,rgba(0,0,0,0) 2em calc(100% - 2em),#7F786B calc(100% - 2em))}
+/* Bargain LCD */
+.m-lcd{width:19em;height:12.6em;padding:1.3em 1.4em;border-radius:2.2em 2.2em 1.2em 1.2em;background:var(--grain),linear-gradient(#F4F1EA,#D8D3C7);box-shadow:inset 0 .15em 0 rgba(255,255,255,.9),0 .35em 0 #BDB6A6}
+.mbrand{display:block;margin-bottom:.6em;text-align:center;color:#5C574C;font:900 .9em/1 var(--round);letter-spacing:.3em}
+.m-lcd .mp{height:7.8em;display:flex;align-items:center;justify-content:center;border:.5em solid #34332F;border-radius:.7em;background:linear-gradient(#C7CEB3,#AAB396);color:#1D2318;box-shadow:inset 0 .3em .6em rgba(0,0,0,.25)}
+.m-lcd .segs{--ghost:.07;font-size:4.6em;transform:skewX(-4.6deg);filter:drop-shadow(.03em .04em 0 rgba(20,26,14,.18))}
+/* Bedside LED */
+.m-led{width:18em;height:11em;padding:1.7em 1.4em;border-radius:3.2em 3.2em 1em 1em;background:var(--grain),linear-gradient(#303034,#111113);box-shadow:inset 0 .12em 0 rgba(255,255,255,.14),0 .35em 0 #050506}
+.m-led .mp{position:relative;height:100%;display:flex;align-items:center;justify-content:center;border-radius:.8em;background:linear-gradient(#1A0604,#0C0202);color:#FF3B22;box-shadow:inset 0 .2em .5em rgba(0,0,0,.6)}
+.m-led .segs{--ghost:.08;font-size:4.7em;filter:drop-shadow(0 0 .05em rgba(255,59,34,.9)) drop-shadow(0 0 .16em rgba(255,59,34,.45))}
+.pm{position:absolute;left:1em;top:1.1em;width:.55em;height:.55em;border-radius:50%;background:#FF3B22;opacity:.08}
+.pm.on{opacity:1;box-shadow:0 0 .45em #FF3B22}
+/* VCR, Never Set */
+.m-vcr{width:20.5em;height:8.6em;padding:1em 1.1em;display:flex;align-items:center;gap:1em;border-radius:.7em;background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 1px,rgba(0,0,0,.035) 1px 3px),linear-gradient(#D5D7DB,#8F9297);box-shadow:inset 0 .1em 0 rgba(255,255,255,.7),0 .35em 0 #6E7176}
+.vleft{flex:1;display:flex;flex-direction:column;gap:1.2em}
+.slot{height:1.4em;border-radius:.2em;background:linear-gradient(#1A1C1E,#3A3D41);box-shadow:inset 0 .15em .2em rgba(0,0,0,.6),0 .06em 0 rgba(255,255,255,.6)}
+.vbtns{display:flex;gap:.45em}
+.vbtns i{width:1.5em;height:.8em;border-radius:.2em;background:linear-gradient(#4A4D52,#2A2D31);box-shadow:0 .1em 0 #16181A}
+.m-vcr .mp{width:9.4em;height:6.4em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35em;border-radius:.4em;background:radial-gradient(rgba(108,247,228,.07) .04em,rgba(0,0,0,0) .07em) 0 0/.28em .28em,linear-gradient(#071210,#030706);color:#6CF7E4;box-shadow:inset 0 .15em .4em rgba(0,0,0,.7)}
+.m-vcr .segs{--ghost:.07;font-size:3.1em;transform:skewX(-5.7deg);filter:drop-shadow(0 0 .07em rgba(108,247,228,.8));animation:blink 1s steps(1,end) infinite}
+.vlabel{font:800 .62em/1 var(--round);letter-spacing:.2em;opacity:.75}
+/* Perpetual Calendar */
+.m-cal{width:16em;height:14.8em;padding:1.1em;border-radius:1em;background:repeating-linear-gradient(97deg,rgba(0,0,0,.12) 0 .15em,rgba(0,0,0,0) .15em .55em,rgba(255,220,170,.06) .55em .7em,rgba(0,0,0,0) .7em 1.25em),linear-gradient(#5A3A24,#2A190E);box-shadow:inset 0 .1em 0 rgba(255,255,255,.16),0 .35em 0 #1C110A}
+.m-cal .mp{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7em;padding:.6em;border-radius:.4em;background:linear-gradient(#0B0908,#050404);box-shadow:inset 0 .15em .4em rgba(0,0,0,.8)}
+.calrow{display:flex;align-items:flex-end;gap:.25em;color:#FF3B22;filter:drop-shadow(0 0 .06em rgba(255,59,34,.85))}
+.calrow .segs{--ghost:.08;font-size:3.8em}
+.calrow .segs.s{font-size:1.8em}
+.dm{display:block;width:100%;overflow:hidden;white-space:nowrap;text-align:center;font:800 1.05em/1.15 var(--mono);letter-spacing:.12em}
+.dm span{display:inline-block;-webkit-mask-image:radial-gradient(circle,#000 46%,rgba(0,0,0,0) 54%);-webkit-mask-size:.2em .2em;mask-image:radial-gradient(circle,#000 46%,rgba(0,0,0,0) 54%);mask-size:.2em .2em}
+.dm.green{color:#3DFF6E;filter:drop-shadow(0 0 .12em rgba(61,255,110,.6))}
+.dm.amber{color:#FFB020;text-align:left;filter:drop-shadow(0 0 .12em rgba(255,176,32,.6))}
+.dm.amber span{padding-left:100%;animation:marq 11s steps(90,end) infinite}
+@keyframes marq{to{transform:translateX(-100%)}}
+
+/* ---------- language sections ---------- */
+.lang-sec{padding:14px 0;scroll-margin-top:12px}
+.lang-sec>.wrap{max-width:62rem}
+.card{background:var(--surface);border-radius:22px;padding:28px 20px 24px;box-shadow:var(--shadow)}
+@media (min-width:700px){.card{padding:44px 48px 36px}}
+.kicker{display:flex;align-items:center;gap:8px;margin:0 0 14px;font:800 .75rem/1 var(--mono);letter-spacing:.2em;color:var(--ink-2)}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF8A1E}
+.card h2{margin:0 0 12px;font:900 clamp(1.6rem,5vw,2.3rem)/1.25 var(--round);letter-spacing:-.01em;text-wrap:balance}
+.lead{margin:0 0 6px;font-size:1.125rem}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17.5rem),1fr));gap:14px;margin:26px 0}
+.feat{margin:0;padding:18px 18px 6px;border:1px solid var(--rule);border-radius:16px;background:var(--bg)}
+.feat.wide{grid-column:1/-1}
+.feat h3{margin:12px 0 6px;font:800 1.0625rem/1.35 var(--round)}
+.feat p{margin:0 0 12px;font-size:.96875rem}
+.chip{display:inline-block;padding:7px 10px 6px;border-radius:6px;background:linear-gradient(#C7CEB3,#AAB396);color:#1D2318;font:800 .9375rem/1 var(--mono);letter-spacing:.08em;box-shadow:0 0 0 3px #34332F}
+.chip.led{background:linear-gradient(#1A0604,#0C0202);color:#FF3B22;text-shadow:0 0 6px rgba(255,59,34,.7)}
+.mlist{list-style:none;margin:4px 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:12px 22px}
+.mlist li{margin:0}
+.mlist b{display:block;font-family:var(--round)}
+.mlist em{display:inline-block;margin-top:4px;font-style:normal;font:800 .6875rem/1 var(--round);letter-spacing:.08em;padding:4px 7px 3px;border-radius:5px;background:#1C6B58;color:#fff}
+.mlist em.paid{background:#C85F12}
+.receipt{background:var(--paper);color:var(--paper-ink);font:500 .9375rem/1.7 var(--mono);padding:18px 20px 20px;margin:1.5em 4px 1.25em;box-shadow:0 6px 16px rgba(0,0,0,.16);transform:rotate(-.5deg)}
+.receipt p{margin:0 0 .4em}
+.receipt strong{font-weight:800}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin:18px 0 0}
+.cta .store{margin-top:0}
+.cta-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.cta-links a{display:inline-block;padding:8px 0;font-weight:600}
+
+.foot{border-top:1px solid var(--rule);margin-top:28px;padding:24px 0 44px;color:var(--ink-2);font-size:.8125rem;line-height:1.6}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-bottom:12px}
+.foot nav a{display:inline-block;padding:8px 0}
+.foot p{margin:0 0 .5em}
+
+@media (prefers-reduced-motion:reduce){
+  .half,.floor,.ink{transition:none}
+  .film.off{--dx:0px;--dy:0px;--ry:0deg;transition:opacity .25s}
+  .sticker.off{transform:rotate(12deg);transition:opacity .25s}
+  .hangtag.swing{animation:none}
+  .soon,.m-vcr .segs{animation:none}
+  .dm.amber span{animation:none;padding-left:0}
+  .note,.note.show{transition:opacity .2s}
+}
+@media print{.top,.stage,.foot nav,.skip{display:none}body{background:#fff;color:#000}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="./"><span class="seal" lang="zh-Hant-TW" aria-hidden="true">貴鐘</span>DEAR CLOCK</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="./" aria-current="page">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <nav class="langs" aria-label="Language / 語言 / 言語">
+      <a class="kc" href="#en" hreflang="en" lang="en">English</a>
+      <a class="kc" href="#zh" hreflang="zh-Hant-TW" lang="zh-Hant-TW">繁體中文</a>
+      <a class="kc" href="#ja" hreflang="ja" lang="ja">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">MODEL DC-1999 · MULTI-FUNCTION DIGITAL CLOCK</p>
+        <h1 id="title">Dear Clock <span class="big-seal" lang="zh-Hant-TW">貴鐘</span></h1>
+        <p class="tl-en">A very expensive phone, seriously pretending to be a cheap desk clock.</p>
+      </div>
+
+      <figure class="stage">
+        <div class="halo" aria-hidden="true"></div>
+        <div class="clock" id="clock" data-pose="stand" role="group" aria-label="Dear Clock, a demo you can press" inert>
+          <div class="half upper">
+            <p class="brand" aria-hidden="true">DEAR CLOCK<small>MULTI-FUNCTION DIGITAL CLOCK</small></p>
+            <div class="bezel">
+              <ol class="wk" id="wk" aria-hidden="true"><li>SUN</li><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li></ol>
+              <div class="panel" id="panel">
+                <span class="sr" id="lcd-sr">10:08</span>
+                <div class="ink" aria-hidden="true">
+                  <div class="bars" id="bars"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
+                  <div class="readout">
+                    <div class="ampm"><span id="am" class="on">AM</span><span id="pm">PM</span></div>
+                    <div class="segs main" id="hero-main"><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div>
+                    <div class="side">
+                      <svg class="bell" id="bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a1.5 1.5 0 0 1 1.5 1.5v.7A6.5 6.5 0 0 1 18.5 11v4.2l1.8 2.3a.9.9 0 0 1-.7 1.5H4.4a.9.9 0 0 1-.7-1.5l1.8-2.3V11a6.5 6.5 0 0 1 5-6.3V4A1.5 1.5 0 0 1 12 2.5Zm-2.6 17.8h5.2a2.6 2.6 0 0 1-5.2 0Z"/></svg>
+                      <div class="segs secs" id="hero-secs"><b class="dg" data-n="3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="film" id="film" type="button" data-act="film" aria-label="Protective film. Peel it off." hidden>
+                <span class="segs film-segs" aria-hidden="true"><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span>
+                <span class="film-text" id="film-text" aria-hidden="true">PROTECTIVE FILM · PLEASE PEEL OFF</span>
+                <span class="peel" id="peel-tab" aria-hidden="true">◂ PEEL</span>
+              </button>
+            </div>
+          </div>
+          <div class="half lower">
+            <button class="k wide" type="button" data-act="snooze" aria-label="Snooze and light">SNOOZE<i class="dot" aria-hidden="true"></i>LIGHT</button>
+            <div class="krow">
+              <button class="k" type="button" data-act="mode" aria-label="Mode">MODE</button>
+              <button class="k" type="button" data-act="h24" aria-label="12- or 24-hour time">12/24</button>
+              <button class="k" type="button" data-act="al" aria-label="Alarm">AL<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a1.5 1.5 0 0 1 1.5 1.5v.7A6.5 6.5 0 0 1 18.5 11v4.2l1.8 2.3a.9.9 0 0 1-.7 1.5H4.4a.9.9 0 0 1-.7-1.5l1.8-2.3V11a6.5 6.5 0 0 1 5-6.3V4A1.5 1.5 0 0 1 12 2.5Zm-2.6 17.8h5.2a2.6 2.6 0 0 1-5.2 0Z"/></svg></button>
+              <button class="k" type="button" data-act="set" aria-label="Set">SET</button>
+            </div>
+            <div class="krow2">
+              <button class="tape" id="tape" type="button" data-act="tape" aria-label="Label: THIS IS A CLOCK. Print a new label."><span id="tape-text">THIS IS A CLOCK</span></button>
+              <div class="spot" id="spot">
+                <span class="glue" aria-hidden="true"></span>
+                <button class="sticker" id="sticker" type="button" data-act="sticker" aria-label="Sale sticker. Peel it off."><span id="sk-a">SALE</span><b id="sk-b">CHEAP!</b></button>
+              </div>
+            </div>
+            <p class="fine" aria-hidden="true">MODEL DC-1999 · QUARTZ · BATTERY NOT INCLUDED</p>
+          </div>
+          <div class="floor" aria-hidden="true"></div>
+          <p class="note" id="note" role="status" aria-live="polite"></p>
+          <div class="hangtag" id="tag" hidden>
+            <div class="tagcard">
+              <p id="tag-text">Fold me halfway and stand me up. I’m a desk clock.</p>
+              <button class="tagx" id="tagx" type="button" data-act="tagx" aria-label="Put the tag away">×</button>
+            </div>
+          </div>
+        </div>
+        <figcaption class="demo-bar" id="demo-bar" hidden>
+          <p class="hint" id="hint">Peel the film. Press the buttons. Lay it flat.</p>
+          <span class="seg" role="group" id="pose-group" aria-label="Pose">
+            <button class="tb" type="button" data-pose="stand" aria-pressed="true">Stand it up</button>
+            <button class="tb" type="button" data-pose="flat" aria-pressed="false">Lay it flat</button>
+          </span>
+          <span class="seg"><button class="tb" id="snd" type="button" aria-pressed="true">♪ <span id="snd-text">Sound</span></button></span>
+        </figcaption>
+      </figure>
+
+      <div class="hero-more">
+        <p class="tl" lang="zh-Hant-TW">把很貴的手機，認真地變成一台百元電子鐘。</p>
+        <p class="tl" lang="ja">高価なスマートフォンが、大まじめに激安の置き時計になりきります。</p>
+        <ul class="facts" aria-label="At a glance">
+          <li>Free download</li><li>No ads</li><li>No subscription</li><li>No account</li><li>No data collected</li>
+        </ul>
+        <!-- After approval: replace this placeholder with Apple's official "Download on the App Store" badge, linked to the real App Store URL. -->
+        <a class="store"><span class="soon" aria-hidden="true">--:--</span>Coming soon on the App Store</a>
+        <p class="compat">Designed for iPhone Duo. Works on any iPhone with iOS 26 or later.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE SHELF ================= -->
+  <section class="shelf" id="shelf" aria-labelledby="shelf-title">
+    <div class="wrap">
+      <h2 class="sec-title" id="shelf-title">The Shelf <span class="alt"><span lang="zh-Hant-TW">貨架</span> · <span lang="ja">棚</span></span></h2>
+      <p class="sec-sub"><span>Four cheap clocks. One very expensive phone.</span><span lang="zh-Hant-TW">四台便宜的鐘，一支很貴的手機。</span><span lang="ja">安い時計が4台、高いスマートフォンが1台。</span></p>
+      <ul class="models">
+        <li class="model">
+          <div class="mini" aria-hidden="true">
+            <div class="mb m-lcd feet">
+              <span class="mbrand">DEAR CLOCK</span>
+              <div class="mp"><span class="segs" data-mini><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span></div>
+            </div>
+          </div>
+          <div class="plank" aria-hidden="true"></div>
+          <div class="label">
+            <h3>Bargain LCD</h3>
+            <p class="alt"><span lang="zh-Hant-TW">百元液晶鐘</span> · <span lang="ja">激安液晶時計</span></p>
+            <span class="strip">INCLUDED</span>
+          </div>
+        </li>
+        <li class="model">
+          <div class="mini" aria-hidden="true">
+            <div class="mb m-led feet">
+              <div class="mp"><span class="pm" id="led-pm"></span><span class="segs" data-mini><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span></div>
+            </div>
+          </div>
+          <div class="plank" aria-hidden="true"></div>
+          <div class="label">
+            <h3>Bedside LED</h3>
+            <p class="alt"><span lang="zh-Hant-TW">床頭 LED 鐘</span> · <span lang="ja">枕元LED時計</span></p>
+            <span class="strip">INCLUDED</span>
+          </div>
+        </li>
+        <li class="model">
+          <div class="mini" aria-hidden="true">
+            <div class="mb m-vcr">
+              <span class="demo-sticker">DEMO UNIT</span>
+              <div class="vleft"><span class="slot"></span><span class="vbtns"><i></i><i></i><i></i></span></div>
+              <div class="mp"><span class="vlabel">VCR · PLAY ▶</span><span class="segs" data-mini><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span></div>
+            </div>
+          </div>
+          <div class="plank" aria-hidden="true"></div>
+          <div class="label">
+            <h3>VCR, Never Set</h3>
+            <p class="alt"><span lang="zh-Hant-TW">沒人設定過的錄影機</span> · <span lang="ja">未設定のビデオデッキ</span></p>
+            <span class="strip paid">THE WHOLE SHELF</span>
+          </div>
+        </li>
+        <li class="model">
+          <div class="mini" aria-hidden="true">
+            <div class="mb m-cal">
+              <span class="demo-sticker">DEMO UNIT</span>
+              <div class="mp">
+                <div class="calrow"><span class="segs" data-mini><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span><span class="segs s" id="cal-secs"><b class="dg" data-n="3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></span></div>
+                <span class="dm green"><span id="cal-date">1999·10·08 FRI</span></span>
+                <span class="dm amber"><span>THIS IS A CLOCK ★ 這是一台鐘 ★ これは時計です ★</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="plank" aria-hidden="true"></div>
+          <div class="label">
+            <h3>Perpetual Calendar</h3>
+            <p class="alt"><span lang="zh-Hant-TW">LED 萬年曆</span> · <span lang="ja">LED万年カレンダー</span></p>
+            <span class="strip paid">THE WHOLE SHELF</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ENGLISH ================= -->
+  <section class="lang-sec" id="en" lang="en" aria-labelledby="en-h">
+    <div class="wrap">
+      <div class="card">
+        <p class="kicker">ENGLISH</p>
+        <h2 id="en-h">Very serious about something unnecessary.</h2>
+        <p class="lead">Dear Clock turns a very expensive phone into a very cheap-looking electronic desk clock: a grey-green LCD, chunky plastic buttons, a label-maker label and a sale sticker that leaves glue behind. The time is correct. The alarm is real. The seriousness is entirely unnecessary.</p>
+        <div class="features">
+          <article class="feat">
+            <span class="chip" aria-hidden="true">88:88</span>
+            <h3>Half-fold it. Stand it up.</h3>
+            <p>On iPhone Duo, the top half becomes the LCD and the bottom half the plastic buttons, split right at the hinge. Open the phone and the LCD powers on: 88:88, beep-beep. Lay it flat and the LCD fades like a cheap one seen from a bad angle, while a kraft hang tag asks you to fold it halfway. It works on any other iPhone too: stacked in portrait, side by side in landscape.</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">10:08</span>
+            <h3>Unboxing included.</h3>
+            <p>The first time, the LCD wears a protective film printed with a fake 10:08. Peel it. Peel the orange “SALE / CHEAP!” sticker too, and enjoy the glue it leaves behind. Both can be re-applied from the back of the clock, for when you want to film the unboxing again.</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">AL 7:00</span>
+            <h3>One real alarm.</h3>
+            <p>One alarm, like a real cheap clock. Repeat it on the days you choose, snooze for 9 minutes, and see the countdown on the Lock Screen and in the Dynamic Island. iOS rings it with a piezo beep, even when the app is closed. There is an optional hourly beep-beep, and the screen can stay on all night.</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">SET</span>
+            <h3>Buttons that do things.</h3>
+            <p>SNOOZE·LIGHT turns on the backlight and, when nothing is ringing, prints a deadpan receipt. MODE shows the date for 5 seconds. 12/24, AL for the alarm, SET for the back of the clock. Tap the label to emboss a new one, up to 24 characters, click by click. You can even change the brand printed on the front.</p>
+          </article>
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">×4</span>
+            <h3>Four models on the shelf.</h3>
+            <ul class="mlist">
+              <li><b>Bargain LCD</b>Grey-green, slightly smug. Has a backlight. <em>INCLUDED</em></li>
+              <li><b>Bedside LED</b>Red digits that light up the whole bedroom. <em>INCLUDED</em></li>
+              <li><b>VCR, Never Set</b>Blinks forever, as if nobody set it. The time is correct, though. <em class="paid">THE WHOLE SHELF</em></li>
+              <li><b>Perpetual Calendar</b>Date, lunar date and a scrolling LED sign that shows your label. <em class="paid">THE WHOLE SHELF</em></li>
+            </ul>
+            <p>Try the paid models first: they just wear a DEMO UNIT sticker. Housings in ivory plastic, matte black, brushed silver and walnut.</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">0 KB</span>
+            <h3>And nothing else.</h3>
+            <p>Free download. No ads, no subscription, no account, and no data collected: everything stays on your phone. VoiceOver reads the time, and Reduce Motion is respected.</p>
+          </article>
+        </div>
+        <div class="receipt">
+          <p><strong>THE WHOLE SHELF</strong> · one purchase unlocks every model, including future ones. Restore it any time.</p>
+          <p><strong>TIPS</strong> · One AA Battery and A Real Cheap Clock unlock nothing. The maker will spend them very seriously on something unnecessary.</p>
+        </div>
+        <div class="cta">
+          <a class="store"><span class="soon" aria-hidden="true">--:--</span>Coming soon on the App Store</a>
+          <div class="cta-links"><a href="support.html#en">Support</a><a href="privacy.html#en">Privacy Policy</a></div>
+        </div>
+        <p class="compat">Requires iOS 26 or later. Designed for iPhone Duo; works on any iPhone. Hinge features need iPhone Duo with iOS 27.1 or later. Languages: English, Traditional Chinese, Japanese.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 繁體中文 ================= -->
+  <section class="lang-sec" id="zh" lang="zh-Hant-TW" aria-labelledby="zh-h">
+    <div class="wrap">
+      <div class="card">
+        <p class="kicker">繁體中文</p>
+        <h2 id="zh-h">對不必要的事，非常認真。</h2>
+        <p class="lead">貴鐘把一支很貴的手機，變成一台看起來很便宜的電子桌鐘：灰綠色液晶、厚實的塑膠按鍵、標籤機印的標籤，還有一張撕掉會留下殘膠的特價貼紙。時間是準的，鬧鐘是真的，認真的程度則完全沒有必要。</p>
+        <div class="features">
+          <article class="feat">
+            <span class="chip" aria-hidden="true">88:88</span>
+            <h3>摺一半，立起來。</h3>
+            <p>在 iPhone Duo 上，上半部是液晶面板，下半部是塑膠按鍵，分界線就在轉軸上。把手機打開，液晶就像裝上電池一樣通電：88:88，嗶嗶。平放時，液晶會像斜著看便宜 LCD 那樣變淡，還會掛出一張牛皮紙吊牌，請你把它摺一半。其他 iPhone 也能用：直拿上下排列，橫放左右並排。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">10:08</span>
+            <h3>附開箱體驗。</h3>
+            <p>第一次打開時，液晶上貼著一張印有假「10:08」的保護膜，撕掉它。橘色的「特價／俗俗賣」貼紙也能撕，殘膠會留下來。兩者都能從時鐘背面重貼，方便你重拍開箱影片。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">AL 7:00</span>
+            <h3>一組真的鬧鐘。</h3>
+            <p>跟真的百元鐘一樣，只有一組鬧鐘。可以選每週哪幾天重複，貪睡 9 分鐘，貪睡倒數會顯示在鎖定畫面和動態島上。鬧鐘由 iOS 負責響，就算 App 關掉，壓電蜂鳴器的嗶嗶聲照樣響。還有可選的整點嗶嗶，螢幕也能整晚保持亮著。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">SET</span>
+            <h3>每顆按鍵都有用。</h3>
+            <p>SNOOZE·LIGHT 打開背光，沒有鬧鐘在響時，還會印出一張一本正經的小紙條。MODE 顯示日期 5 秒，12/24 切換時制，AL 設鬧鐘，SET 翻到時鐘背面。點一下標籤就能印新的，最多 24 個字，一格一格喀喀喀壓印出來。連正面印的品牌都能改。</p>
+          </article>
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">×4</span>
+            <h3>貨架上的四款機型。</h3>
+            <ul class="mlist">
+              <li><b>百元液晶鐘</b>灰綠色，有點得意。有背光。 <em>內建</em></li>
+              <li><b>床頭 LED 鐘</b>紅色數字，能照亮整間臥室。 <em>內建</em></li>
+              <li><b>沒人設定過的錄影機</b>永遠在閃，像沒人設定過。但時間其實是對的。 <em class="paid">整排貨架</em></li>
+              <li><b>LED 萬年曆</b>國曆、農曆加跑馬燈，跑馬燈上跑的是你的標籤。 <em class="paid">整排貨架</em></li>
+            </ul>
+            <p>付費機型可以先試用，只是會貼一張「展示品」貼紙。外殼有象牙白塑膠、霧面黑、髮絲紋銀和胡桃木。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">0 KB</span>
+            <h3>其他什麼都沒有。</h3>
+            <p>免費下載。沒有廣告、沒有訂閱、沒有帳號，也不蒐集任何資料，一切都留在你的手機上。VoiceOver 會唸出時間，也支援「減少動態效果」。</p>
+          </article>
+        </div>
+        <div class="receipt">
+          <p><strong>整排貨架</strong> · 一次購買，解鎖所有機型，包含之後推出的新款，隨時可以恢復購買。</p>
+          <p><strong>贊助</strong> · 「一顆三號電池」和「一台真的百元鐘」不會解鎖任何東西。作者會非常認真地把它花在沒必要的東西上。</p>
+        </div>
+        <div class="cta">
+          <a class="store"><span class="soon" aria-hidden="true">--:--</span>即將在 App Store 上架</a>
+          <div class="cta-links"><a href="support.html#zh">支援</a><a href="privacy.html#zh">隱私權政策</a></div>
+        </div>
+        <p class="compat">需要 iOS 26 或以上版本。為 iPhone Duo 設計，任何 iPhone 都能用；轉軸相關功能需要 iPhone Duo 搭配 iOS 27.1 或以上版本。介面語言：英文、繁體中文、日文。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 日本語 ================= -->
+  <section class="lang-sec" id="ja" lang="ja" aria-labelledby="ja-h">
+    <div class="wrap">
+      <div class="card">
+        <p class="kicker">日本語</p>
+        <h2 id="ja-h">無駄なことに、全力でまじめ。</h2>
+        <p class="lead">Dear Clock は、とても高価なスマートフォンを、いかにも安そうな電子置き時計に変えるアプリです。くすんだ緑の液晶、ごついプラスチックのボタン、ラベルライターのラベル、そしてはがすとのりが残る特価シール。時刻は正確、アラームは本物。まじめさは、まったく必要ありません。</p>
+        <div class="features">
+          <article class="feat">
+            <span class="chip" aria-hidden="true">88:88</span>
+            <h3>半分に折って、立てる。</h3>
+            <p>iPhone Duo なら、上半分が液晶、下半分がプラスチックのボタンになり、その境目はちょうどヒンジの位置。閉じた状態から開くと、電池を入れたときのように「88:88」が点灯してピピッ。平らに広げると、安い液晶を斜めから見たように表示が薄くなり、半分に折って立てるようお願いするクラフト紙のタグが下がります。ほかの iPhone でも使えます。縦向きなら上下に、横向きなら左右に並びます。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">10:08</span>
+            <h3>開封の儀つき。</h3>
+            <p>初めて起動すると、液晶にはニセの「10:08」が印刷された保護フィルムが貼られています。はがしてください。オレンジの「特価／激安！」シールもはがせますが、のりは残ります。どちらも本体裏面から貼り直せるので、開封動画を何度でも撮り直せます。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">AL 7:00</span>
+            <h3>本物のアラームが、1つだけ。</h3>
+            <p>本物の安い時計と同じく、アラームは1つ。曜日を選んで繰り返せて、スヌーズは9分。スヌーズ中はロック画面と Dynamic Island にカウントダウンが表示されます。アラームは iOS が鳴らすので、アプリを閉じていても圧電ブザーのピピピピが鳴ります。毎正時のピピッもお好みで。画面を一晩中つけておくこともできます。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">SET</span>
+            <h3>ボタンは全部、ちゃんと押せる。</h3>
+            <p>SNOOZE·LIGHT でバックライトが点灯し、アラームが鳴っていないときは真顔のレシートが出てきます。MODE で日付を5秒表示、12/24 で表示切り替え、AL でアラーム、SET で本体裏面へ。ラベルをタップすれば、最大24文字の新しいラベルが1文字ずつカチカチとエンボスされます。前面のブランド表記まで変えられます。</p>
+          </article>
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">×4</span>
+            <h3>棚に並ぶ4つの機種。</h3>
+            <ul class="mlist">
+              <li><b>激安液晶時計</b>くすんだ緑色で、ちょっとドヤ顔。バックライト付き。 <em>標準搭載</em></li>
+              <li><b>枕元LED時計</b>寝室全体を照らしてしまう赤い数字。 <em>標準搭載</em></li>
+              <li><b>未設定のビデオデッキ</b>誰も設定していないみたいに、永遠に点滅。でも時刻は合っています。 <em class="paid">棚まるごと</em></li>
+              <li><b>LED万年カレンダー</b>日付、旧暦、そしてあなたのラベルが流れる電光表示。 <em class="paid">棚まるごと</em></li>
+            </ul>
+            <p>有料の機種も、「展示品」シールを貼った状態で先にお試しいただけます。本体の質感は、アイボリーのプラスチック、マットブラック、ヘアラインのシルバー、ウォールナット。</p>
+          </article>
+          <article class="feat">
+            <span class="chip" aria-hidden="true">0 KB</span>
+            <h3>それ以外は、なにもなし。</h3>
+            <p>ダウンロード無料。広告なし、サブスクリプションなし、アカウント不要。データは一切収集せず、すべて端末の中に残ります。VoiceOver は時刻を読み上げ、「視差効果を減らす」にも対応しています。</p>
+          </article>
+        </div>
+        <div class="receipt">
+          <p><strong>棚まるごと</strong> · 一度の購入で、今後追加される機種も含めてすべての機種が使えるようになります。いつでも復元できます。</p>
+          <p><strong>差し入れ</strong> · 「単三電池を1本」と「本物の安い時計」では、何もロック解除されません。作者がたいへん真剣に、なにか不要なものに使わせていただきます。</p>
+        </div>
+        <div class="cta">
+          <a class="store"><span class="soon" aria-hidden="true">--:--</span>App Store で近日公開</a>
+          <div class="cta-links"><a href="support.html#ja">サポート</a><a href="privacy.html#ja">プライバシーポリシー</a></div>
+        </div>
+        <p class="compat">iOS 26 以降が必要です。iPhone Duo 向けに設計されていますが、どの iPhone でも使えます。ヒンジ連動の機能には、iOS 27.1 以降の iPhone Duo が必要です。表示言語：英語、繁体字中国語、日本語。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="./" aria-current="page">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:yayoi991331@gmail.com">yayoi991331@gmail.com</a>
+    </nav>
+    <p>© 2026 Chih-Chieh Han (<span lang="zh-Hant-TW">韓志杰</span>). Dear Clock <span lang="zh-Hant-TW">貴鐘</span>.</p>
+    <p>iPhone is a trademark of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Dear Clock is an independent app and is not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script>
+/* The demo clock: progressive enhancement only. Without this script the page still reads fine and the clocks show 10:08. */
+(() => {
+  'use strict';
+  const d = document;
+  const $ = (id) => d.getElementById(id);
+  const clock = $('clock');
+  if (!clock) return;
+
+  const rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  const reduced = () => rm.matches;
+  const lang = (() => {
+    const l = String((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
+    return l.startsWith('zh') ? 'zh' : l.startsWith('ja') ? 'ja' : 'en';
+  })();
+  const BCP = { en: 'en', zh: 'zh-Hant-TW', ja: 'ja' };
+
+  // Copy taken from the app's own string catalog, so the website clock talks like the real one.
+  const S = {
+    en: {
+      wk: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+      filmText: 'PROTECTIVE FILM · PLEASE PEEL OFF', peel: '◂ PEEL', sale: 'SALE', cheap: 'CHEAP!',
+      tag: 'Fold me halfway and stand me up. I’m a desk clock.',
+      lines: ['No alarm is ringing. Great reflexes, though.', 'Snoozed for 0 minutes.', 'Snooze function: operating normally.',
+        'You have pressed a premium button.', 'Nothing to snooze. The light is a thank-you.', 'This clock has never overslept.'],
+      al: 'This is the website. The real alarm is in the app.',
+      set: 'The back of the clock is in the app.',
+      again: 'New film, new sticker. For when you want to film the unboxing again.',
+      hint: 'Peel the film. Press the buttons. Lay it flat.',
+      stand: 'Stand it up', flat: 'Lay it flat', sound: 'Sound', pose: 'Pose',
+      demo: 'Dear Clock, a demo you can press',
+      filmLabel: 'Protective film. Peel it off.', stickerLabel: 'Sale sticker. Peel it off.', tagClose: 'Put the tag away',
+      tapeLabel: 'Label: %s. Print a new label.',
+      keys: { snooze: 'Snooze and light', mode: 'Mode', h24: '12- or 24-hour time', al: 'Alarm', set: 'Set' }
+    },
+    zh: {
+      wk: ['日', '一', '二', '三', '四', '五', '六'],
+      filmText: '保護膜 · 使用前請撕下', peel: '◂ 撕', sale: '特價', cheap: '俗俗賣',
+      tag: '把我摺一半、立起來。我就是一台桌鐘。',
+      lines: ['目前沒有鬧鐘在響。不過你反應很快。', '已為您貪睡 0 分鐘。', '貪睡功能：運作正常。',
+        '您按下了一顆高級按鈕。', '沒有東西可以貪睡。開燈是一點謝意。', '本鐘從未睡過頭。'],
+      al: '這裡是網站。真的鬧鐘在 App 裡。',
+      set: '時鐘背面在 App 裡。',
+      again: '重貼保護膜，補一張特價貼紙。想再拍一次開箱的時候用。',
+      hint: '撕掉保護膜，按按看，再把它平放。',
+      stand: '立起來', flat: '平放', sound: '聲音', pose: '擺法',
+      demo: '貴鐘，可以按的展示品',
+      filmLabel: '保護膜。撕掉它。', stickerLabel: '特價貼紙。撕掉它。', tagClose: '收起吊牌',
+      tapeLabel: '標籤：%s。印一張新的。',
+      keys: { snooze: '貪睡和背光', mode: '模式', h24: '12 或 24 小時制', al: '鬧鐘', set: '設定' }
+    },
+    ja: {
+      wk: ['日', '月', '火', '水', '木', '金', '土'],
+      filmText: '保護フィルム · ご使用前にはがしてください', peel: '◂ はがす', sale: '特価', cheap: '激安！',
+      tag: '半分に折って、立ててください。わたしは置き時計です。',
+      lines: ['アラームは鳴っていません。ただ、反射神経はお見事です。', '0分間スヌーズしました。', 'スヌーズ機能：正常に動作しています。',
+        'ただいま、高級なボタンが押されました。', 'スヌーズするものがありません。ライトは、ほんの気持ちです。', 'この時計は、一度も寝坊したことがありません。'],
+      al: 'ここはウェブサイトです。本物のアラームはアプリの中にあります。',
+      set: '本体裏面はアプリの中にあります。',
+      again: '保護フィルムと特価シールを貼り直しました。開封動画をもう一度撮りたいときにどうぞ。',
+      hint: 'フィルムをはがして、ボタンを押して、平らに置いてみてください。',
+      stand: '立てる', flat: '平らに置く', sound: 'サウンド', pose: '置き方',
+      demo: 'Dear Clock、押せるデモ機',
+      filmLabel: '保護フィルム。はがします。', stickerLabel: '特価シール。はがします。', tagClose: 'タグを閉じる',
+      tapeLabel: 'ラベル：%s。新しいラベルを印刷します。',
+      keys: { snooze: 'スヌーズとライト', mode: 'モード', h24: '12時間または24時間表示', al: 'アラーム', set: 'セット' }
+    }
+  };
+  const t = S[lang];
+  const LABELS = [['THIS IS A CLOCK', 'en'], ['這是一台鐘', 'zh-Hant-TW'], ['これは時計です', 'ja']];
+  let labelIdx = { en: 0, zh: 1, ja: 2 }[lang];
+
+  let h24 = false;
+  try {
+    const ro = new Intl.DateTimeFormat(undefined, { hour: 'numeric' }).resolvedOptions();
+    h24 = ro.hourCycle ? (ro.hourCycle === 'h23' || ro.hourCycle === 'h24') : ro.hour12 === false;
+  } catch (e) { /* keep 12-hour */ }
+
+  const panel = $('panel'), film = $('film'), sticker = $('sticker'), spot = $('spot');
+  const tape = $('tape'), tapeText = $('tape-text'), note = $('note'), tag = $('tag'), bar = $('demo-bar');
+  const snd = $('snd'), lcdSr = $('lcd-sr'), am = $('am'), pm = $('pm'), bell = $('bell');
+  const heroMain = Array.from(d.querySelectorAll('#hero-main .dg'));
+  const heroColon = d.querySelector('#hero-main .cl');
+  const heroSecs = Array.from(d.querySelectorAll('#hero-secs .dg'));
+  const bars = Array.from(d.querySelectorAll('#bars i'));
+  const minis = Array.from(d.querySelectorAll('[data-mini]')).map((g) => Array.from(g.querySelectorAll('.dg')));
+  const calSecs = Array.from(d.querySelectorAll('#cal-secs .dg'));
+  const ledPm = $('led-pm'), calDate = $('cal-date');
+  const poseBtns = Array.from(d.querySelectorAll('.tb[data-pose]'));
+
+  /* ---- sound: a tiny square-wave piezo, only ever after a press ---- */
+  let ac = null, soundOn = true;
+  const audio = () => {
+    if (!soundOn) return null;
+    try {
+      if (!ac) {
+        const C = window.AudioContext || window.webkitAudioContext;
+        if (!C) return null;
+        ac = new C();
+      }
+      if (ac.state === 'suspended') ac.resume();
+      return ac;
+    } catch (e) { return null; }
+  };
+  const tone = (freq, dur, at, gain) => {
+    const a = audio();
+    if (!a) return;
+    try {
+      const t0 = a.currentTime + (at || 0);
+      const o = a.createOscillator(), g = a.createGain();
+      o.type = 'square';
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(gain, t0 + 0.004);
+      g.gain.setValueAtTime(gain, t0 + Math.max(0.005, dur - 0.01));
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g);
+      g.connect(a.destination);
+      o.start(t0);
+      o.stop(t0 + dur + 0.02);
+    } catch (e) { /* no sound, no problem */ }
+  };
+  const sfx = {
+    click: () => tone(1500, 0.018, 0, 0.018),
+    tick: () => tone(820, 0.012, 0, 0.014),
+    beep2: () => { tone(2730, 0.07, 0, 0.026); tone(2730, 0.07, 0.14, 0.026); }
+  };
+
+  /* ---- state ---- */
+  let bootUntil = 0, lightUntil = 0, dateUntil = 0, alarmOn = false;
+  let filmOn = false, stickerOn = true, tagDismissed = false, printing = false, snoozeN = 0, lastMinute = -1, noteTimer = 0;
+
+  const pad = (n) => String(n).padStart(2, '0');
+  const setN = (el, n) => { if (el && el.getAttribute('data-n') !== n) el.setAttribute('data-n', n); };
+  const fill = (els, str) => els.forEach((el, i) => setN(el, str[i] === ' ' ? '' : str[i]));
+  const hourStr = (h) => (h24 ? pad(h) : String(h % 12 || 12).padStart(2, ' '));
+  const WK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+  function render() {
+    const now = new Date(), ms = now.getTime();
+    const boot = ms < bootUntil, showDate = ms < dateUntil;
+    const h = now.getHours(), m = now.getMinutes(), wd = now.getDay(), mo = now.getMonth() + 1;
+    const time = hourStr(h) + pad(m);
+    fill(heroMain, boot ? '8888' : showDate ? String(mo).padStart(2, ' ') + pad(now.getDate()) : time);
+    fill(heroSecs, boot ? '88' : showDate ? '  ' : pad(now.getSeconds()));
+    heroColon.classList.toggle('on', boot || (!showDate && (reduced() || now.getMilliseconds() < 500)));
+    bars.forEach((b, i) => b.classList.toggle('on', boot || i === wd));
+    am.classList.toggle('on', boot || (!h24 && !showDate && h < 12));
+    pm.classList.toggle('on', boot || (!h24 && !showDate && h >= 12));
+    bell.classList.toggle('on', boot || alarmOn);
+    panel.classList.toggle('lit', ms < lightUntil);
+    minis.forEach((g) => fill(g, time));
+    fill(calSecs, pad(now.getSeconds()));
+    ledPm.classList.toggle('on', !h24 && h >= 12);
+    if (m !== lastMinute) {
+      lastMinute = m;
+      calDate.textContent = now.getFullYear() + '·' + pad(mo) + '·' + pad(now.getDate()) + ' ' + WK[wd];
+      try {
+        lcdSr.textContent = new Intl.DateTimeFormat(BCP[lang], { hour: 'numeric', minute: '2-digit', hour12: !h24 }).format(now);
+      } catch (e) { lcdSr.textContent = hourStr(h).trim() + ':' + pad(m); }
+    }
+  }
+
+  function say(text) {
+    note.textContent = text;
+    note.classList.add('show');
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => note.classList.remove('show'), 3200);
+  }
+  function boot() { bootUntil = Date.now() + 900; sfx.beep2(); render(); }
+  const clearDrag = () => ['--dx', '--dy', '--ry'].forEach((p) => film.style.removeProperty(p));
+
+  function peelFilm() {
+    if (!filmOn) return;
+    filmOn = false;
+    if (d.activeElement === film) clock.querySelector('[data-act="snooze"]').focus({ preventScroll: true });
+    clearDrag();
+    film.style.transition = '';
+    film.classList.add('off');
+    setTimeout(() => { film.hidden = true; boot(); }, reduced() ? 260 : 420);
+  }
+  function peelSticker() {
+    if (!stickerOn) return;
+    stickerOn = false;
+    spot.classList.add('peeled');
+    sticker.classList.add('off');
+    setTimeout(() => {
+      if (d.activeElement === sticker) tape.focus({ preventScroll: true });
+      sticker.hidden = true;
+    }, reduced() ? 260 : 450);
+  }
+  function slapOn(el) {
+    el.style.transition = 'none';
+    el.classList.remove('off');
+    el.hidden = false;
+    void el.offsetWidth;
+    el.style.transition = '';
+  }
+  function reapply() {
+    clearDrag();
+    slapOn(film); filmOn = true;
+    slapOn(sticker); stickerOn = true;
+    spot.classList.remove('peeled');
+  }
+  function showLabel(i, animate) {
+    const text = LABELS[i][0];
+    tapeText.setAttribute('lang', LABELS[i][1]);
+    tape.setAttribute('aria-label', t.tapeLabel.replace('%s', text));
+    if (!animate || reduced()) { tapeText.textContent = text; return; }
+    const chars = Array.from(text);
+    let n = 0;
+    printing = true;
+    tapeText.textContent = '';
+    (function step() {
+      tapeText.textContent = chars.slice(0, ++n).join('');
+      sfx.tick();
+      if (n < chars.length) setTimeout(step, 85); else printing = false;
+    })();
+  }
+  let tagTimer = 0;
+  function setPose(p) {
+    clock.setAttribute('data-pose', p);
+    poseBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-pose') === p)));
+    clearTimeout(tagTimer);
+    if (p === 'flat' && !tagDismissed) {
+      tagTimer = setTimeout(() => {
+        tag.hidden = false;
+        if (!reduced()) { tag.classList.remove('swing'); void tag.offsetWidth; tag.classList.add('swing'); }
+      }, reduced() ? 0 : 450);
+    } else {
+      tag.hidden = true;
+    }
+  }
+
+  const act = {
+    snooze() { lightUntil = Date.now() + 3000; say(t.lines[snoozeN++ % t.lines.length]); },
+    mode() { dateUntil = Date.now() < dateUntil ? 0 : Date.now() + 5000; },
+    h24() { h24 = !h24; lastMinute = -1; },
+    al() { alarmOn = !alarmOn; sfx.beep2(); say(t.al); },
+    set() { if (!filmOn || !stickerOn) { reapply(); say(t.again); } else { say(t.set); } },
+    tape() { if (!printing) { labelIdx = (labelIdx + 1) % LABELS.length; showLabel(labelIdx, true); } },
+    sticker() { peelSticker(); },
+    film() { if (film.hasAttribute('data-dragged')) { film.removeAttribute('data-dragged'); return; } peelFilm(); },
+    tagx() {
+      tagDismissed = true;
+      tag.hidden = true;
+      const flatBtn = poseBtns.find((b) => b.getAttribute('data-pose') === 'flat');
+      if (flatBtn) flatBtn.focus({ preventScroll: true });
+    }
+  };
+
+  clock.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-act]');
+    if (!el || !clock.contains(el)) return;
+    const a = el.getAttribute('data-act');
+    audio();
+    if (a === 'snooze' || a === 'mode' || a === 'h24' || a === 'set') sfx.click();
+    if (act[a]) act[a]();
+    render();
+  });
+
+  /* drag the film to peel it, like the app */
+  let drag = null;
+  film.addEventListener('pointerdown', (e) => {
+    if (!filmOn || e.button > 0) return;
+    drag = { x: e.clientX, y: e.clientY, moved: false, id: e.pointerId };
+    film.style.transition = 'none';
+    try { film.setPointerCapture(e.pointerId); } catch (err) { /* fine */ }
+  });
+  film.addEventListener('pointermove', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moved && Math.abs(dx) < 6) return;
+    drag.moved = true;
+    if (reduced()) return;
+    film.style.setProperty('--dx', (Math.min(0, dx) + Math.max(0, dx) * 0.3) + 'px');
+    film.style.setProperty('--dy', (dy * 0.3) + 'px');
+    film.style.setProperty('--ry', Math.max(-40, Math.min(0, dx / 6)) + 'deg');
+  });
+  film.addEventListener('pointerup', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x, moved = drag.moved;
+    drag = null;
+    if (!moved) { film.style.transition = ''; return; }
+    film.setAttribute('data-dragged', '');
+    setTimeout(() => film.removeAttribute('data-dragged'), 400);
+    if (Math.abs(dx) > film.offsetWidth * 0.22) {
+      audio();
+      peelFilm();
+    } else {
+      film.style.transition = 'transform .35s cubic-bezier(.3,1.5,.5,1)';
+      clearDrag();
+    }
+  });
+  film.addEventListener('pointercancel', () => {
+    if (!drag) return;
+    drag = null;
+    film.style.transition = '';
+    clearDrag();
+  });
+
+  poseBtns.forEach((b) => b.addEventListener('click', () => setPose(b.getAttribute('data-pose'))));
+  snd.addEventListener('click', () => {
+    soundOn = !soundOn;
+    snd.setAttribute('aria-pressed', String(soundOn));
+    if (soundOn) sfx.click();
+  });
+
+  /* ---- localize the demo to the visitor's language ---- */
+  const L = BCP[lang];
+  const local = (el, text) => { if (!el) return; if (text != null) el.textContent = text; el.setAttribute('lang', L); };
+  if (lang !== 'en') {
+    d.querySelectorAll('#wk li').forEach((li, i) => { li.textContent = t.wk[i]; });
+    local($('wk'));
+    local($('film-text'), t.filmText);
+    local($('peel-tab'), t.peel);
+    local(film);
+    local($('sk-a'), t.sale);
+    local($('sk-b'), t.cheap);
+    local(sticker);
+    local($('tag-text'), t.tag);
+    local(tag);
+    local(bar);
+    clock.querySelectorAll('.k[data-act]').forEach((k) => { k.setAttribute('aria-label', t.keys[k.getAttribute('data-act')]); k.setAttribute('lang', L); });
+  }
+  local(note);
+  clock.setAttribute('aria-label', t.demo);
+  film.setAttribute('aria-label', t.filmLabel);
+  sticker.setAttribute('aria-label', t.stickerLabel);
+  $('tagx').setAttribute('aria-label', t.tagClose);
+  $('hint').textContent = t.hint;
+  $('snd-text').textContent = t.sound;
+  $('pose-group').setAttribute('aria-label', t.pose);
+  poseBtns.forEach((b) => { b.textContent = b.getAttribute('data-pose') === 'flat' ? t.flat : t.stand; });
+  showLabel(labelIdx, false);
+
+  /* ---- switch on ---- */
+  film.hidden = false;
+  filmOn = true;
+  bar.hidden = false;
+  clock.removeAttribute('inert');
+  render();
+  setInterval(render, 250);
+})();
+</script>
+</body>
+</html>

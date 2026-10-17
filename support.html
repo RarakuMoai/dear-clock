@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Support · Dear Clock</title>
+<meta name="description" content="Help for Dear Clock (貴鐘): standing it up, the alarm, the faded LCD, peeling and re-applying the film, trying models, restoring purchases, and how to contact the developer. 支援 · サポート">
+<link rel="canonical" href="https://rarakumoai.github.io/dear-clock/support.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F1EEE6'/%3E%3Crect x='7' y='10' width='50' height='28' rx='5' fill='%2334332F'/%3E%3Crect x='10' y='13' width='44' height='22' rx='3' fill='%23B8C0A4'/%3E%3Crect x='9' y='44' width='46' height='10' rx='4' fill='%23D8D3C7'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#EFEBE2;--dot:rgba(70,58,36,.075);
+  --surface:#FAF8F3;--ink:#2B2924;--ink-2:#5C574C;--rule:#DDD6C7;
+  --link:#1C6B58;--link-hover:#0F4436;
+  --cap-top:#FDFCF9;--cap-bottom:#E6E1D5;--cap-edge:#B7B0A1;--cap-ink:#4E4A41;--cap-line:rgba(255,255,255,.75);
+  --tape:#1E1E20;--seal:#C8372D;
+  --paper:#FBF9F3;--paper-ink:#2E2B26;--paper-link:#1C6B58;
+  --shadow:0 1px 2px rgba(60,48,28,.10),0 8px 24px rgba(60,48,28,.07);
+  --round:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#1D1D20;--dot:rgba(255,255,255,.035);
+    --surface:#28282C;--ink:#ECE9E2;--ink-2:#C9C6BE;--rule:#3A3A40;
+    --link:#6FE3C8;--link-hover:#A6F5DC;
+    --cap-top:#3A3A3F;--cap-bottom:#2A2A2E;--cap-edge:#0A0A0B;--cap-ink:#D6D8DC;--cap-line:rgba(255,255,255,.08);
+    --tape:#0E0E10;
+    --paper:#E9E5DA;--paper-ink:#2E2B26;--paper-link:#17594A;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 8px 24px rgba(0,0,0,.28);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1px,transparent 1.5px);background-size:6px 6px;color:var(--ink);font:400 1.0625rem/1.65 -apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",system-ui,sans-serif;overflow-wrap:break-word}
+:lang(zh){font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+:lang(ja){font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif}
+section:lang(zh),section:lang(ja){line-height:1.85}
+main{flex:1}
+.wrap{width:100%;max-width:46rem;margin:0 auto;padding:0 16px}
+a{color:var(--link);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--link-hover)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:8px;z-index:10;box-shadow:var(--shadow)}
+.skip:focus{top:8px}
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{max-width:72rem;display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding-top:8px;padding-bottom:10px}
+.mark{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;padding:8px 0;font:800 .9375rem/1 var(--round);letter-spacing:.22em;white-space:nowrap}
+.mark:hover{color:var(--ink)}
+.seal{display:inline-flex;align-items:center;justify-content:center;writing-mode:vertical-rl;width:24px;height:34px;border-radius:4px;background:var(--seal);color:#FFF7EE;font:700 11px/1.05 "PingFang TC","Noto Sans TC",sans-serif;letter-spacing:0;transform:rotate(-4deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-left:auto}
+.site-nav a{display:inline-block;color:var(--ink-2);text-decoration:none;padding:10px 0}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.4em}
+.langs{display:flex;flex-wrap:wrap;gap:10px;flex-basis:100%;padding:2px 0 4px}
+@media (min-width:860px){.langs{flex-basis:auto}}
+.kc{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:10px;background:linear-gradient(var(--cap-top),var(--cap-bottom));border:1px solid var(--cap-line);box-shadow:0 4px 0 var(--cap-edge),0 6px 10px rgba(0,0,0,.12);color:var(--cap-ink);font:800 .8125rem/1 var(--round);letter-spacing:.06em;text-decoration:none;margin-bottom:4px;transition:transform .06s,box-shadow .06s}
+.kc:hover{color:var(--cap-ink)}
+.kc:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cap-edge),0 2px 4px rgba(0,0,0,.12)}
+h1,h2,h3,h4{color:var(--ink);line-height:1.3;text-wrap:balance}
+h1{font:800 clamp(1.75rem,6vw,2.375rem)/1.2 var(--round);letter-spacing:-.01em;margin:32px 0 28px}
+h1 .alt{display:block;font-size:.55em;font-weight:700;color:var(--ink-2);letter-spacing:.04em;margin-top:8px}
+h2{font-size:1.375rem;margin:0 0 4px}
+h3{font-size:1.125rem;margin:1.9em 0 .6em}
+p,ul,ol,dl{margin:0 0 1em}
+ul,ol{padding-left:1.4em}
+li{margin:.3em 0}
+.meta{color:var(--ink-2);font-size:.9375rem;margin:0 0 1.25em}
+.sheet{background:var(--surface);border-radius:18px;padding:24px 20px 12px;box-shadow:var(--shadow);margin:0 0 28px;scroll-margin-top:16px}
+@media (min-width:640px){.sheet{padding:36px 40px 20px}}
+.kicker{display:flex;align-items:center;gap:8px;font:800 .75rem/1 var(--mono);letter-spacing:.2em;color:var(--ink-2);margin:0 0 14px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF8A1E}
+.lead{font-size:1.125rem}
+.legend{display:grid;grid-template-columns:auto 1fr;gap:14px 16px;align-items:center;margin:0 0 1.25em}
+.legend dt,.legend dd{margin:0}
+@media (max-width:420px){.legend{grid-template-columns:1fr;gap:6px}.legend dd{margin-bottom:12px}}
+.cap{display:inline-flex;align-items:center;justify-content:center;min-width:5.5em;min-height:36px;padding:0 12px;border-radius:10px;background:linear-gradient(var(--cap-top),var(--cap-bottom));border:1px solid var(--cap-line);box-shadow:0 3px 0 var(--cap-edge);color:var(--cap-ink);font:800 .75rem/1 var(--round);letter-spacing:.1em;white-space:nowrap;margin-bottom:3px}
+.tape{display:inline-block;background:var(--tape);color:#F4F4F2;font:800 .75rem/1 var(--round);letter-spacing:.14em;padding:9px 12px;border-radius:3px;transform:rotate(-1.8deg);text-shadow:0 1px 0 rgba(0,0,0,.6),0 -1px 0 rgba(255,255,255,.25);white-space:nowrap}
+.faq h4{font-size:1.0625rem;line-height:1.45;margin:0;padding-top:1.1em;border-top:1px solid var(--rule)}
+.faq h4+p{margin-top:.4em}
+.faq{margin-bottom:1em}
+.faq>*:last-child{margin-bottom:1.25em}
+.receipt{background:var(--paper);color:var(--paper-ink);font:500 .9375rem/1.7 var(--mono);padding:18px 20px 20px;margin:1.75em 4px 1.5em;box-shadow:0 6px 16px rgba(0,0,0,.16);transform:rotate(-.6deg)}
+.receipt h3{color:var(--paper-ink);margin:0 0 .35em;font-family:inherit}
+.receipt p{margin:0 0 .4em}
+.receipt a{color:var(--paper-link);font-weight:700}
+.foot{border-top:1px solid var(--rule);margin-top:16px;padding:24px 0 44px;color:var(--ink-2);font-size:.8125rem;line-height:1.6}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:.9375rem;margin-bottom:12px}
+.foot nav a{display:inline-block;padding:8px 0}
+.foot p{margin:0 0 .5em}
+@media print{.top,.foot nav,.skip{display:none}body{background:#fff;color:#000}.sheet{box-shadow:none;padding:0}.receipt{transform:none;box-shadow:none;border:1px dashed #999}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="./"><span class="seal" lang="zh-Hant-TW" aria-hidden="true">貴鐘</span>DEAR CLOCK</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <nav class="langs" aria-label="Language / 語言 / 言語">
+      <a class="kc" href="#en" hreflang="en" lang="en">English</a>
+      <a class="kc" href="#zh" hreflang="zh-Hant-TW" lang="zh-Hant-TW">繁體中文</a>
+      <a class="kc" href="#ja" hreflang="ja" lang="ja">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Support <span class="alt"><span lang="zh-Hant-TW">支援</span> · <span lang="ja">サポート</span></span></h1>
+
+    <!-- ============ English ============ -->
+    <section class="sheet" id="en" lang="en" aria-labelledby="en-title">
+      <p class="kicker">ENGLISH</p>
+      <h2 id="en-title">Dear Clock Support</h2>
+      <p class="meta">Requires iOS 26 or later. Designed for iPhone Duo; works on any iPhone.</p>
+
+      <p class="lead">Dear Clock turns a very expensive phone into a cheap electronic desk clock, and takes the job very seriously. Fold it halfway and stand it up: the top half is the LCD, the bottom half is the plastic buttons. The time is real, and so is the one alarm.</p>
+
+      <h3>Quick start</h3>
+      <ol>
+        <li>Peel off the protective film (the one printed with a fake 10:08). Swipe it away or tap it.</li>
+        <li>Peel off the sale sticker too, if you like. It leaves a little glue behind, as sale stickers do.</li>
+        <li>Stand the clock up (see below). Press <strong>AL</strong> to set the alarm and <strong>SET</strong> to open the back of the clock.</li>
+      </ol>
+
+      <h3>The buttons</h3>
+      <dl class="legend">
+        <dt><span class="cap">SNOOZE · LIGHT</span></dt>
+        <dd>Turns on the backlight. While the alarm is ringing, it snoozes for 9 minutes. When nothing is ringing, it prints a deadpan little receipt instead.</dd>
+        <dt><span class="cap">MODE</span></dt>
+        <dd>Shows the date for 5 seconds.</dd>
+        <dt><span class="cap">12/24</span></dt>
+        <dd>Switches between 12- and 24-hour time.</dd>
+        <dt><span class="cap">AL</span></dt>
+        <dd>Sets the alarm.</dd>
+        <dt><span class="cap">SET</span></dt>
+        <dd>Opens the back of the clock: models, switches, printing, and Support the Maker.</dd>
+        <dt><span class="tape">THIS IS A CLOCK</span></dt>
+        <dd>The label. Tap it to print a new one.</dd>
+      </dl>
+
+      <h3>Questions</h3>
+      <div class="faq">
+        <h4>Which devices does it work on?</h4>
+        <p>Any iPhone with iOS 26 or later. Dear Clock is designed for iPhone Duo: on iPhone Duo with iOS 27.1 or later, the clock follows the hinge (see the next question). On any other iPhone, hold it upright and the LCD sits above the buttons; turn it sideways and they sit side by side.</p>
+
+        <h4>How do I stand it up?</h4>
+        <p>On iPhone Duo, open it partway into an L shape and set it on the desk. The top half becomes the LCD and the bottom half the buttons; the split follows the hinge. The LCD looks its best between about 80° and 135°. Opening the phone from closed powers the LCD on, like putting batteries in: every segment lights up as 88:88 and it beeps twice.</p>
+        <p>On any other iPhone, lean it against something and you have a desk clock.</p>
+
+        <h4>Does the alarm really wake me up?</h4>
+        <p>Yes. Press <strong>AL</strong>, pick a time, and choose whether it rings once or repeats on certain days. Dear Clock schedules the alarm with iOS, so iOS rings it even if you close the app. The alarm screen shows how long until it rings. The clock has exactly one alarm, like a real cheap one.</p>
+        <p>When it rings, Snooze gives you 9 minutes, the standard for cheap clocks, and a countdown appears on the Lock Screen and in the Dynamic Island. If the app is open, <strong>SNOOZE·LIGHT</strong> snoozes it too. To turn the alarm off, press <strong>AL</strong> and choose Turn Alarm Off.</p>
+
+        <h4>It asked for permission to schedule alarms. Do I have to allow it?</h4>
+        <p>Only if you want the alarm. The permission is used only for your one alarm. If you said no, the alarm screen shows an Open Settings button so you can turn it back on. The clock works fine without it.</p>
+
+        <h4>Why does the LCD look faded when the phone lies flat?</h4>
+        <p>On purpose. When iPhone Duo lies fully open and flat, the Bargain LCD model looks washed out, the way cheap LCDs do from a bad angle. A kraft-paper hang tag also appears, asking you to fold it halfway. Fold it back into a stand and the contrast returns. Your screen is fine. Tap the × on the tag to put it away for good.</p>
+
+        <h4>Can I put the film or the sale sticker back on?</h4>
+        <p>Yes, for when you want to film the unboxing again. Press <strong>SET</strong>, then under Printing choose New protective film or New sale sticker.</p>
+
+        <h4>How do I change the label or the brand?</h4>
+        <p>Tap the label below the buttons, type up to 24 characters and press Print. It is embossed one letter at a time. To change the brand printed on the front (up to 14 characters), press <strong>SET</strong> and edit it under Printing. On the Perpetual Calendar model, your label scrolls across the LED sign.</p>
+
+        <h4>How do I try the paid models?</h4>
+        <p>Press <strong>SET</strong> and tap VCR, Never Set or Perpetual Calendar. It goes straight onto the clock with a DEMO UNIT sticker, so you can try it first. To keep it, tap the DEMO UNIT sticker (or go to Support the Maker on the back of the clock) and buy The Whole Shelf. It is a one-time purchase that unlocks every model, including ones added later. There is no subscription.</p>
+
+        <h4>How do I restore my purchase?</h4>
+        <p>Press <strong>SET</strong>, scroll down to Support the Maker and tap Restore Purchases. Use the same Apple Account you bought The Whole Shelf with.</p>
+
+        <h4>What do the tips unlock?</h4>
+        <p>Nothing. One AA Battery and A Real Cheap Clock are just a thank-you. They are one-time tips, so there is nothing to restore. The maker will spend them very seriously on something unnecessary.</p>
+
+        <h4>Will it drain my battery?</h4>
+        <p>“Keep the screen on” is on by default, so the clock stays visible. For overnight use, plug in the charger, like a clock with a power adapter. You can switch it off under <strong>SET</strong> › Switches, next to Hourly beep-beep (it beeps while the clock is on screen) and Button sounds.</p>
+
+        <h4>Does it need the internet? Does it collect my data?</h4>
+        <p>No and no. The clock and the alarm work offline; only the shop needs to reach the App Store. Dear Clock collects no data. Your settings, label text and alarm time stay on your device. See the <a href="privacy.html#en">Privacy Policy</a>.</p>
+
+        <h4>Does it work with VoiceOver and Reduce Motion?</h4>
+        <p>Yes. VoiceOver reads the time (and the date while it is showing) and names every button in your language, even though the button caps are printed in English, as on real cheap clocks. With Reduce Motion on, the film and the sticker fade away instead of flying off, and the LED sign changes a page at a time instead of scrolling. The VCR, Never Set model blinks on purpose; if blinking bothers you, choose another model.</p>
+
+        <h4>Which languages does it speak?</h4>
+        <p>English, Traditional Chinese and Japanese. The app follows your device’s language and uses English for every other language. The button caps stay in English, as tradition demands.</p>
+
+        <h4>The alarm couldn’t be set. What now?</h4>
+        <p>Try again. If it keeps failing, restart the phone (cheap clocks have the same problem), and check that alarms are allowed for Dear Clock in Settings. If it still won’t work, please email us.</p>
+      </div>
+
+      <div class="receipt">
+        <h3>Contact</h3>
+        <p>Email <a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Support">yayoi991331@gmail.com</a></p>
+        <p>Please include your device model, your iOS version and what happened.</p>
+      </div>
+    </section>
+
+    <!-- ============ 繁體中文 ============ -->
+    <section class="sheet" id="zh" lang="zh-Hant-TW" aria-labelledby="zh-title">
+      <p class="kicker">繁體中文</p>
+      <h2 id="zh-title">貴鐘支援</h2>
+      <p class="meta">需要 iOS 26 或以上版本。為 iPhone Duo 設計，任何 iPhone 都能用。</p>
+
+      <p class="lead">貴鐘把一支很貴的手機變成一台便宜的電子桌鐘，而且非常認真看待這份工作。把手機摺一半立起來：上半部是液晶面板，下半部是塑膠按鍵。時間是準的，那一組鬧鐘也是真的會響。</p>
+
+      <h3>快速上手</h3>
+      <ol>
+        <li>撕掉保護膜（上面印著假的 10:08），用滑的或點一下都可以。</li>
+        <li>想撕的話，特價貼紙也可以撕掉。跟所有特價貼紙一樣，會留下一點殘膠。</li>
+        <li>把鐘立起來（說明見下方）。按 <strong>AL</strong> 設定鬧鐘，按 <strong>SET</strong> 翻到時鐘背面。</li>
+      </ol>
+
+      <h3>按鍵說明</h3>
+      <dl class="legend">
+        <dt><span class="cap" lang="en">SNOOZE · LIGHT</span></dt>
+        <dd>打開背光。鬧鐘響的時候按，會貪睡 9 分鐘；沒在響的時候按，會印出一張一本正經的小紙條。</dd>
+        <dt><span class="cap" lang="en">MODE</span></dt>
+        <dd>顯示日期 5 秒。</dd>
+        <dt><span class="cap">12/24</span></dt>
+        <dd>切換 12 或 24 小時制。</dd>
+        <dt><span class="cap" lang="en">AL</span></dt>
+        <dd>設定鬧鐘。</dd>
+        <dt><span class="cap" lang="en">SET</span></dt>
+        <dd>翻到時鐘背面：換機型、切換開關、修改印刷，還有支持作者。</dd>
+        <dt><span class="tape">這是一台鐘</span></dt>
+        <dd>標籤。點一下就能印一張新的。</dd>
+      </dl>
+
+      <h3>常見問題</h3>
+      <div class="faq">
+        <h4>哪些裝置可以用？</h4>
+        <p>任何裝有 iOS 26 或以上版本的 iPhone 都能用。貴鐘是為 iPhone Duo 設計的：在 iOS 27.1 或以上版本的 iPhone Duo 上，時鐘會跟著轉軸動作（見下一題）。在其他 iPhone 上，直拿時液晶在上、按鍵在下；橫放時左右並排。</p>
+
+        <h4>要怎麼把它立起來？</h4>
+        <p>在 iPhone Duo 上，把手機打開一半、摺成 L 形放在桌上。上半部變成液晶面板，下半部是按鍵，分界線就在轉軸上。液晶在大約 80° 到 135° 之間最好看。把闔起來的手機打開時，液晶會像剛裝上電池一樣全亮「88:88」，嗶嗶兩聲。</p>
+        <p>其他 iPhone 也一樣：找個東西靠著，就是一台桌鐘。</p>
+
+        <h4>鬧鐘真的會叫我起床嗎？</h4>
+        <p>會。按 <strong>AL</strong>，選好時間，再選只響一次，或每週哪幾天重複。貴鐘是請 iOS 排定鬧鐘，所以就算把 App 關掉，iOS 也會照常響鈴。鬧鐘畫面會顯示還有多久響。這台鐘只有一組鬧鐘，跟真的百元鐘一樣。</p>
+        <p>鬧鐘響的時候，按「貪睡 9 分鐘」可以再睡 9 分鐘（便宜鬧鐘的標準規格），鎖定畫面和動態島上會顯示倒數。如果 App 開著，按 <strong>SNOOZE·LIGHT</strong> 也能貪睡。要關掉鬧鐘，按 <strong>AL</strong> 再選「關閉鬧鐘」。</p>
+
+        <h4>它跟我要鬧鐘權限，一定要允許嗎？</h4>
+        <p>只有想用鬧鐘的時候才需要。這項權限只會用在你設定的那一組鬧鐘。如果當初選了不允許，鬧鐘畫面會出現「打開設定」按鈕，讓你重新開啟。不開也沒關係，時鐘照樣能用。</p>
+
+        <h4>手機平放時，液晶為什麼看起來很淡？</h4>
+        <p>故意的。把 iPhone Duo 完全打開平放時，「百元液晶鐘」機型的液晶會變淡，就像從不對的角度看便宜的液晶一樣。這時還會掛出一張牛皮紙吊牌，請你把它摺一半。重新摺回立起來的角度，對比就會恢復。你的螢幕沒有壞。點吊牌上的 × 就能把它收起來，之後不會再出現。</p>
+
+        <h4>保護膜和特價貼紙可以再貼回去嗎？</h4>
+        <p>可以，方便你重拍開箱影片。按 <strong>SET</strong>，在「印刷」裡選「重貼保護膜」或「補一張特價貼紙」。</p>
+
+        <h4>要怎麼改標籤或品牌？</h4>
+        <p>點按鍵下方的標籤，輸入最多 24 個字，再按「列印」，它會一格一格壓印出來。要改正面印的品牌（最多 14 個字），按 <strong>SET</strong>，在「印刷」裡修改。換成「LED 萬年曆」時，你的標籤會在跑馬燈上跑。</p>
+
+        <h4>要怎麼試用付費機型？</h4>
+        <p>按 <strong>SET</strong>，點「沒人設定過的錄影機」或「LED 萬年曆」，它就會直接裝到時鐘上，貼著一張「展示品」貼紙，讓你先用用看。想留下來的話，點那張「展示品」貼紙（或到時鐘背面的「支持作者」），購買「整排貨架」。一次買斷，解鎖所有機型，包含之後推出的新款。沒有訂閱。</p>
+
+        <h4>要怎麼恢復購買？</h4>
+        <p>按 <strong>SET</strong>，往下捲到「支持作者」，點「恢復購買」。請使用當初購買「整排貨架」的同一個 Apple 帳號。</p>
+
+        <h4>贊助會解鎖什麼？</h4>
+        <p>什麼都不會。「一顆三號電池」和「一台真的百元鐘」只是一點心意。它們是單次贊助，所以沒有東西可以恢復。作者會非常認真地把它花在沒必要的東西上。</p>
+
+        <h4>會很耗電嗎？</h4>
+        <p>「螢幕保持亮著」預設是開啟的，讓時鐘一直看得到。如果要整晚放在床頭，建議接上充電器，就像插著變壓器的電子鐘。你可以在 <strong>SET</strong> 的「開關」裡把它關掉，「整點嗶嗶」（時鐘顯示在畫面上時會響）和「按鍵音」也在那裡。</p>
+
+        <h4>需要網路嗎？會蒐集我的資料嗎？</h4>
+        <p>都不會。時鐘和鬧鐘離線就能用，只有商店需要連上 App Store。貴鐘不蒐集任何資料，你的設定、標籤文字和鬧鐘時間都只留在裝置上。詳見<a href="privacy.html#zh">隱私權政策</a>。</p>
+
+        <h4>支援 VoiceOver 和「減少動態效果」嗎？</h4>
+        <p>支援。VoiceOver 會唸出時間（顯示日期時也會唸日期），每顆按鍵也都有中文名稱，雖然按鍵上印的是英文，跟真的便宜鐘一樣。開啟「減少動態效果」後，保護膜和貼紙會淡出，不會飛走；LED 跑馬燈會改成一頁一頁換字，不會一直捲動。「沒人設定過的錄影機」是故意一直閃的，如果閃爍讓你不舒服，請換別的機型。</p>
+
+        <h4>支援哪些語言？</h4>
+        <p>英文、繁體中文和日文，會跟著裝置的語言設定；其他語言一律顯示英文。按鍵上的字依照傳統，一律印英文。</p>
+
+        <h4>鬧鐘設定失敗怎麼辦？</h4>
+        <p>再試一次。如果一直失敗，重新開機看看（便宜的鐘也有一樣的毛病），並確認「設定」裡有允許貴鐘使用鬧鐘。還是不行的話，歡迎來信。</p>
+      </div>
+
+      <div class="receipt">
+        <h3>聯絡我們</h3>
+        <p>來信請寄 <a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Support">yayoi991331@gmail.com</a></p>
+        <p>請附上裝置型號、iOS 版本，以及發生了什麼事。</p>
+      </div>
+    </section>
+
+    <!-- ============ 日本語 ============ -->
+    <section class="sheet" id="ja" lang="ja" aria-labelledby="ja-title">
+      <p class="kicker">日本語</p>
+      <h2 id="ja-title">Dear Clock サポート</h2>
+      <p class="meta">iOS 26 以降が必要です。iPhone Duo 向けに設計されていますが、どの iPhone でも使えます。</p>
+
+      <p class="lead">Dear Clock は、とても高価なスマートフォンを、激安の電子置き時計に変えるアプリです。しかも、その仕事を大まじめにこなします。半分に折って立てれば、上半分が液晶、下半分がプラスチックのボタン。時刻は正確で、1つだけのアラームも本当に鳴ります。</p>
+
+      <h3>はじめかた</h3>
+      <ol>
+        <li>保護フィルム（ニセの 10:08 が印刷されています）をはがします。スワイプしても、タップしてもはがれます。</li>
+        <li>お好みで、特価シールもはがしてください。特価シールらしく、少しのりが残ります。</li>
+        <li>時計を立てます（下記参照）。<strong>AL</strong> でアラームをセット、<strong>SET</strong> で本体裏面を開きます。</li>
+      </ol>
+
+      <h3>ボタンの説明</h3>
+      <dl class="legend">
+        <dt><span class="cap" lang="en">SNOOZE · LIGHT</span></dt>
+        <dd>バックライトを点灯します。アラームが鳴っているときは9分間スヌーズ。鳴っていないときは、かわりに真顔の小さなレシートが出てきます。</dd>
+        <dt><span class="cap" lang="en">MODE</span></dt>
+        <dd>日付を5秒間表示します。</dd>
+        <dt><span class="cap">12/24</span></dt>
+        <dd>12時間表示と24時間表示を切り替えます。</dd>
+        <dt><span class="cap" lang="en">AL</span></dt>
+        <dd>アラームをセットします。</dd>
+        <dt><span class="cap" lang="en">SET</span></dt>
+        <dd>本体裏面を開きます。機種、各種スイッチ、印刷、作者を応援。</dd>
+        <dt><span class="tape">これは時計です</span></dt>
+        <dd>ラベルです。タップすると新しいラベルを印刷できます。</dd>
+      </dl>
+
+      <h3>よくある質問</h3>
+      <div class="faq">
+        <h4>どの端末で使えますか？</h4>
+        <p>iOS 26 以降のすべての iPhone で使えます。Dear Clock は iPhone Duo 向けに設計されていて、iOS 27.1 以降の iPhone Duo では、時計がヒンジの動きに合わせて反応します（次の質問を参照）。そのほかの iPhone では、縦向きなら液晶が上・ボタンが下に、横向きなら左右に並びます。</p>
+
+        <h4>どうやって立てるのですか？</h4>
+        <p>iPhone Duo なら、L字になるように途中まで開いて机に置きます。上半分が液晶、下半分がボタンになり、その境目はヒンジの位置に合わせて決まります。液晶がいちばんきれいに見えるのは約80°〜135°です。閉じた状態から開くと、電池を入れたときのように全セグメントが「88:88」と点灯し、ピピッと2回鳴ります。</p>
+        <p>ほかの iPhone でも、何かに立てかければ置き時計になります。</p>
+
+        <h4>アラームで本当に起きられますか？</h4>
+        <p>起きられます。<strong>AL</strong> を押して時刻を選び、1回だけ鳴らすか、曜日を選んで繰り返すかを決めます。アラームは iOS に登録されるので、アプリを閉じていても iOS が鳴らします。アラーム画面には、あと何時間何分で鳴るかが表示されます。アラームは、本物の安い時計と同じく、きっかり1つだけです。</p>
+        <p>鳴ったら「9分スヌーズ」で9分間（安い時計の定番です）。スヌーズ中は、ロック画面と Dynamic Island にカウントダウンが表示されます。アプリを開いていれば、<strong>SNOOZE·LIGHT</strong> でもスヌーズできます。アラームをオフにするには、<strong>AL</strong> を押して「アラームをオフにする」を選びます。</p>
+
+        <h4>アラームの許可を求められました。許可しないといけませんか？</h4>
+        <p>アラームを使う場合だけで大丈夫です。この許可は、お客様の1つのアラームにしか使いません。許可しなかった場合は、アラーム画面に「設定を開く」ボタンが表示され、あとからオンにできます。許可しなくても、時計としてはそのまま使えます。</p>
+
+        <h4>平らに置くと液晶が薄く見えるのはなぜですか？</h4>
+        <p>わざとです。iPhone Duo を完全に開いて平らに置くと、「激安液晶時計」の液晶は、安い液晶を悪い角度から見たときのように薄くなります。このとき、半分に折って立てるようにお願いするクラフト紙のタグも下がります。立てる角度に戻せば、コントラストも元どおり。画面の故障ではありません。タグは × をタップすると閉じられ、それ以降は表示されません。</p>
+
+        <h4>保護フィルムや特価シールは貼り直せますか？</h4>
+        <p>貼り直せます。開封動画を撮り直したいときにどうぞ。<strong>SET</strong> を押し、「印刷」で「保護フィルムを貼り直す」または「特価シールをもう1枚」を選びます。</p>
+
+        <h4>ラベルやブランド表記を変えるには？</h4>
+        <p>ボタンの下のラベルをタップし、最大24文字を入力して「印刷」を押すと、1文字ずつカチカチとエンボスされます。前面のブランド表記（最大14文字）を変えるには、<strong>SET</strong> を押して「印刷」で編集します。「LED万年カレンダー」では、ラベルの文字が電光表示に流れます。</p>
+
+        <h4>有料の機種を試すには？</h4>
+        <p><strong>SET</strong> を押して「未設定のビデオデッキ」か「LED万年カレンダー」をタップすると、「展示品」シールが貼られた状態でそのまま時計に表示され、先にお試しいただけます。気に入ったら、「展示品」シールをタップするか、本体裏面の「作者を応援」から「棚まるごと」を購入してください。一度の購入で、今後追加される機種も含めてすべての機種が使えるようになります。サブスクリプションではありません。</p>
+
+        <h4>購入を復元するには？</h4>
+        <p><strong>SET</strong> を押し、「作者を応援」までスクロールして「購入を復元」をタップします。「棚まるごと」を購入したときと同じ Apple アカウントをお使いください。</p>
+
+        <h4>差し入れで何がロック解除されますか？</h4>
+        <p>何もされません。「単三電池を1本」と「本物の安い時計」の差し入れは、ほんの気持ちです。1回ごとの差し入れなので、復元するものもありません。作者がたいへん真剣に、なにか不要なものに使わせていただきます。</p>
+
+        <h4>バッテリーの減りが心配です。</h4>
+        <p>「画面をつけたままにする」は最初からオンなので、時計がずっと見えます。夜通し使うなら、ACアダプタ付きの時計のように、充電器につないでおくのがおすすめです。<strong>SET</strong> の「各種スイッチ」でオフにできます。「毎正時にピピッ」（時計が画面に表示されているときに鳴ります）と「ボタン操作音」も同じ場所にあります。</p>
+
+        <h4>インターネットは必要ですか？データは収集されますか？</h4>
+        <p>どちらも不要・なしです。時計とアラームはオフラインで動きます。インターネットが必要なのは、お店が App Store に接続するときだけです。Dear Clock はデータを収集しません。設定、ラベルの文字、アラームの時刻は端末内に残ります。詳しくは<a href="privacy.html#ja">プライバシーポリシー</a>をご覧ください。</p>
+
+        <h4>VoiceOver や「視差効果を減らす」に対応していますか？</h4>
+        <p>対応しています。VoiceOver は時刻（日付の表示中は日付も）を読み上げ、すべてのボタンを日本語の名前で案内します。ボタンの刻印は、本物の安い時計と同じく英語のままです。「視差効果を減らす」をオンにすると、フィルムやシールは飛んでいかずにフェードアウトし、LED の電光表示は流れずに1画面ずつ切り替わります。「未設定のビデオデッキ」は仕様として点滅し続けます。点滅が気になる場合は、ほかの機種をお選びください。</p>
+
+        <h4>対応言語は？</h4>
+        <p>英語、繁体字中国語、日本語です。端末の言語設定に従い、それ以外の言語では英語で表示されます。ボタンの刻印は、伝統にのっとり英語のままです。</p>
+
+        <h4>アラームを設定できませんでした。</h4>
+        <p>もう一度お試しください。何度やってもだめな場合は、端末を再起動してみてください（安い時計もよく同じことになります）。また、「設定」で Dear Clock のアラームが許可されているかご確認ください。それでも解決しない場合は、メールでご連絡ください。</p>
+      </div>
+
+      <div class="receipt">
+        <h3>お問い合わせ</h3>
+        <p>メール：<a href="mailto:yayoi991331@gmail.com?subject=Dear%20Clock%20Support">yayoi991331@gmail.com</a></p>
+        <p>お使いの機種、iOS のバージョン、どんなことが起きたかを書き添えてください。お返事は英語または中国語になる場合があります。</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="./">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:yayoi991331@gmail.com">yayoi991331@gmail.com</a>
+    </nav>
+    <p>© 2026 Chih-Chieh Han (<span lang="zh-Hant-TW">韓志杰</span>). Dear Clock <span lang="zh-Hant-TW">貴鐘</span>.</p>
+    <p>iPhone is a trademark of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Dear Clock is an independent app and is not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
