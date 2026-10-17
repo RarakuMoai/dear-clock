@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>Dear Clock · 貴鐘</title>
-<meta name="description" content="Dear Clock (貴鐘): a very expensive phone, seriously pretending to be a cheap desk clock. A real alarm, plastic buttons, a peelable film. No ads, no subscription, no account, no data collected.">
+<meta name="description" content="Dear Clock (貴鐘): a very expensive phone, seriously pretending to be a cheap desk clock, with your own message running under the time or filling the display as a big sign. A real alarm, plastic buttons, a peelable film. No ads, no subscription, no account, no data collected.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dear Clock · 貴鐘">
-<meta property="og:description" content="A very expensive phone, seriously pretending to be a cheap desk clock.">
+<meta property="og:description" content="A very expensive phone, seriously pretending to be a cheap desk clock. Your own words run under the time.">
 <meta property="og:url" content="https://rarakumoai.github.io/dear-clock/">
 <link rel="canonical" href="https://rarakumoai.github.io/dear-clock/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F1EEE6'/%3E%3Crect x='7' y='10' width='50' height='28' rx='5' fill='%2334332F'/%3E%3Crect x='10' y='13' width='44' height='22' rx='3' fill='%23B8C0A4'/%3E%3Crect x='9' y='44' width='46' height='10' rx='4' fill='%23D8D3C7'/%3E%3C/svg%3E">
@@ -112,6 +112,7 @@ a:hover{color:var(--link-hover)}
 .hero h1{display:flex;flex-wrap:wrap;align-items:center;gap:.15em .3em;margin:0 0 18px;font:900 clamp(2.75rem,11vw,5rem)/.95 var(--round);letter-spacing:-.025em}
 .big-seal{display:inline-flex;align-items:center;justify-content:center;writing-mode:vertical-rl;padding:.24em .17em;border-radius:.1em;background:var(--seal);color:#FFF7EE;font:800 .34em/1.05 "PingFang TC","Noto Sans TC",sans-serif;letter-spacing:.06em;transform:rotate(-6deg);box-shadow:inset 0 0 0 .07em rgba(255,255,255,.25),0 .05em .15em rgba(120,20,10,.25)}
 .tl-en{margin:0;max-width:26ch;font:800 clamp(1.3rem,3.8vw,1.75rem)/1.3 var(--round);letter-spacing:-.005em;text-wrap:balance}
+.tl-msg{margin:14px 0 0;max-width:34ch;color:var(--ink-2);font:700 1.0625rem/1.5 var(--round);text-wrap:pretty}
 .tl{margin:0 0 8px;padding-left:12px;border-left:3px solid var(--rule);color:var(--ink-2);font-size:1.0625rem;line-height:1.6}
 .facts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
 .facts li{margin:0;padding:7px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);font:700 .8125rem/1 var(--round);color:var(--ink-2)}
@@ -145,15 +146,28 @@ a:hover{color:var(--link-hover)}
 .bars{position:absolute;top:.8em;left:1.2em;right:1.2em;display:grid;grid-template-columns:repeat(7,1fr);gap:0 .9em}
 .bars i{height:.42em;background:currentColor;opacity:var(--ghost);transform:skewX(-20deg)}
 .bars i.on{opacity:1}
-.readout{position:absolute;left:.8em;right:.8em;bottom:1.3em;height:7.4em;display:flex;align-items:flex-end;justify-content:space-between}
+.readout{position:absolute;left:.8em;right:.8em;bottom:3.3em;height:7.2em;display:flex;align-items:flex-end;justify-content:space-between}
 .ampm{align-self:flex-start;display:flex;flex-direction:column;gap:.45em;padding-top:.2em;font:900 .95em/1 var(--round);letter-spacing:.04em}
 .ampm span{opacity:var(--ghost)}
 .ampm span.on{opacity:1}
-.main{font-size:7em;gap:.06em;transform:skewX(-4.6deg)}
+.main{font-size:6.4em;gap:.06em;transform:skewX(-4.6deg)}
 .side{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
 .bell{width:1.7em;height:1.7em;fill:currentColor;opacity:var(--ghost)}
 .bell.on{opacity:1}
-.secs{font-size:2.6em;gap:.08em;transform:skewX(-4.6deg)}
+.secs{font-size:2.4em;gap:.08em;transform:skewX(-4.6deg)}
+/* your message in dots: a subtitle line under the time, or the whole display when MSG is on */
+.dots{-webkit-mask-image:radial-gradient(circle,#000 50%,rgba(0,0,0,0) 60%);-webkit-mask-size:.125em .125em;mask-image:radial-gradient(circle,#000 50%,rgba(0,0,0,0) 60%);mask-size:.125em .125em}
+.sub{position:absolute;left:1.2em;right:1.2em;bottom:.85em;height:2em;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sub span{flex:none;white-space:nowrap;font:800 1.75em/1 var(--mono);letter-spacing:.06em}
+.sub.run{justify-content:flex-start}
+.sub.run span{padding-left:100%}
+.sign{position:absolute;inset:0;display:none;flex-direction:column;padding:.7em 1.2em .9em}
+.panel.signing .bars,.panel.signing .readout,.panel.signing .sub{display:none}
+.panel.signing .sign{display:flex}
+.sign-t{align-self:flex-end;font-size:2.1em;transform:skewX(-4.6deg)}
+.sign-m{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
+.sign-m span{max-width:100%;font:800 3.3em/1.1 var(--mono);letter-spacing:.04em;text-wrap:balance;animation:signblink 1.6s steps(1,end) infinite}
+@keyframes signblink{0%{opacity:1}72%{opacity:.08}}
 .film{position:absolute;top:2.1em;left:1em;right:1em;bottom:1em;z-index:3;margin:0;padding:0;border:0;border-radius:.7em;cursor:grab;touch-action:pan-y;font:inherit;color:#2A2D30;background:rgba(238,240,234,.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8em;transform:perspective(60em) translate(var(--dx,0px),var(--dy,0px)) rotateY(var(--ry,0deg));transform-origin:0 50%;box-shadow:0 .1em .35em rgba(0,0,0,.18)}
 .film::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(125deg,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 34%,rgba(255,255,255,.4) 35%,rgba(255,255,255,0) 50%);pointer-events:none}
 .film-segs{--ghost:0;font-size:5.4em;opacity:.5;transform:skewX(-4.6deg)}
@@ -165,6 +179,8 @@ a:hover{color:var(--link-hover)}
 .k.wide{width:100%;height:3.3em;font-size:1.3em;letter-spacing:.16em}
 .k .dot{width:.3em;height:.3em;border-radius:50%;background:currentColor;opacity:.5}
 .k svg{width:.95em;height:.95em;fill:currentColor}
+.k .led{width:.42em;height:.42em;border-radius:50%;background:currentColor;opacity:.25}
+.k[aria-pressed="true"] .led{background:#FF5A36;opacity:1;box-shadow:0 0 .35em rgba(255,90,54,.8)}
 .krow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1em;margin-top:1.7em}
 .krow2{display:flex;align-items:center;justify-content:space-between;gap:1em;margin-top:1.9em;padding:0 .2em}
 .tape{-webkit-appearance:none;appearance:none;margin:0;border:0;cursor:pointer;min-width:8em;max-width:17em;overflow:hidden;white-space:nowrap;text-align:left;padding:.72em 1.1em .68em;border-radius:.16em;background:linear-gradient(#2B2B2E,#141416);color:#F3F3F0;font:900 1.2em/1 var(--round);letter-spacing:.2em;transform:rotate(-1.6deg);box-shadow:0 .14em .3em rgba(0,0,0,.35);text-shadow:0 -.06em 0 rgba(0,0,0,.75),0 .06em 0 rgba(255,255,255,.3)}
@@ -288,6 +304,7 @@ a:hover{color:var(--link-hover)}
   .hangtag.swing{animation:none}
   .soon,.m-vcr .segs{animation:none}
   .dm.amber span{animation:none;padding-left:0}
+  .sign-m span{animation:none}
   .note,.note.show{transition:opacity .2s}
 }
 @media print{.top,.stage,.foot nav,.skip{display:none}body{background:#fff;color:#000}.card{box-shadow:none}}
@@ -321,6 +338,7 @@ a:hover{color:var(--link-hover)}
         <p class="eyebrow">MODEL DC-1999 · MULTI-FUNCTION DIGITAL CLOCK</p>
         <h1 id="title">Dear Clock <span class="big-seal" lang="zh-Hant-TW">貴鐘</span></h1>
         <p class="tl-en">A very expensive phone, seriously pretending to be a cheap desk clock.</p>
+        <p class="tl-msg">Type your own words. They run under the time, or press MSG and they fill the whole display as a big sign.</p>
       </div>
 
       <figure class="stage">
@@ -342,6 +360,11 @@ a:hover{color:var(--link-hover)}
                       <div class="segs secs" id="hero-secs"><b class="dg" data-n="3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div>
                     </div>
                   </div>
+                  <div class="sub" id="sub"><span class="dots" id="sub-text">THIS IS A CLOCK</span></div>
+                  <div class="sign">
+                    <div class="segs sign-t" id="sign-time"><b class="dg" data-n="1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="cl on"></b><b class="dg" data-n="0"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b><b class="dg" data-n="8"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div>
+                    <div class="sign-m"><span class="dots" id="sign-text">THIS IS A CLOCK</span></div>
+                  </div>
                 </div>
               </div>
               <button class="film" id="film" type="button" data-act="film" aria-label="Protective film. Peel it off." hidden>
@@ -355,12 +378,12 @@ a:hover{color:var(--link-hover)}
             <button class="k wide" type="button" data-act="snooze" aria-label="Snooze and light">SNOOZE<i class="dot" aria-hidden="true"></i>LIGHT</button>
             <div class="krow">
               <button class="k" type="button" data-act="mode" aria-label="Mode">MODE</button>
-              <button class="k" type="button" data-act="h24" aria-label="12- or 24-hour time">12/24</button>
+              <button class="k" type="button" data-act="msg" aria-label="Big sign" aria-pressed="false">MSG<i class="led" aria-hidden="true"></i></button>
               <button class="k" type="button" data-act="al" aria-label="Alarm">AL<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a1.5 1.5 0 0 1 1.5 1.5v.7A6.5 6.5 0 0 1 18.5 11v4.2l1.8 2.3a.9.9 0 0 1-.7 1.5H4.4a.9.9 0 0 1-.7-1.5l1.8-2.3V11a6.5 6.5 0 0 1 5-6.3V4A1.5 1.5 0 0 1 12 2.5Zm-2.6 17.8h5.2a2.6 2.6 0 0 1-5.2 0Z"/></svg></button>
               <button class="k" type="button" data-act="set" aria-label="Set">SET</button>
             </div>
             <div class="krow2">
-              <button class="tape" id="tape" type="button" data-act="tape" aria-label="Label: THIS IS A CLOCK. Print a new label."><span id="tape-text">THIS IS A CLOCK</span></button>
+              <button class="tape" id="tape" type="button" data-act="tape" aria-label="Label: THIS IS A CLOCK. Print a new message."><span id="tape-text">THIS IS A CLOCK</span></button>
               <div class="spot" id="spot">
                 <span class="glue" aria-hidden="true"></span>
                 <button class="sticker" id="sticker" type="button" data-act="sticker" aria-label="Sale sticker. Peel it off."><span id="sk-a">SALE</span><b id="sk-b">CHEAP!</b></button>
@@ -378,7 +401,7 @@ a:hover{color:var(--link-hover)}
           </div>
         </div>
         <figcaption class="demo-bar" id="demo-bar" hidden>
-          <p class="hint" id="hint">Peel the film. Press the buttons. Lay it flat.</p>
+          <p class="hint" id="hint">Peel the film. Tap the label for a new message. Press MSG. Lay it flat.</p>
           <span class="seg" role="group" id="pose-group" aria-label="Pose">
             <button class="tb" type="button" data-pose="stand" aria-pressed="true">Stand it up</button>
             <button class="tb" type="button" data-pose="flat" aria-pressed="false">Lay it flat</button>
@@ -388,8 +411,8 @@ a:hover{color:var(--link-hover)}
       </figure>
 
       <div class="hero-more">
-        <p class="tl" lang="zh-Hant-TW">把很貴的手機，認真地變成一台百元電子鐘。</p>
-        <p class="tl" lang="ja">高価なスマートフォンが、大まじめに激安の置き時計になりきります。</p>
+        <p class="tl" lang="zh-Hant-TW">把很貴的手機，認真地變成一台百元電子鐘。打上你自己的字幕，它就在時間下面跑；按 MSG，整個螢幕變成大字看板。</p>
+        <p class="tl" lang="ja">高価なスマートフォンが、大まじめに激安の置き時計になりきります。好きな言葉を打てば時刻の下に流れ、MSG を押せば画面いっぱいの電光掲示に。</p>
         <ul class="facts" aria-label="At a glance">
           <li>Free download</li><li>No ads</li><li>No subscription</li><li>No account</li><li>No data collected</li>
         </ul>
@@ -476,8 +499,13 @@ a:hover{color:var(--link-hover)}
       <div class="card">
         <p class="kicker">ENGLISH</p>
         <h2 id="en-h">Very serious about something unnecessary.</h2>
-        <p class="lead">Dear Clock turns a very expensive phone into a very cheap-looking electronic desk clock: a grey-green LCD, chunky plastic buttons, a label-maker label and a sale sticker that leaves glue behind. The time is correct. The alarm is real. The seriousness is entirely unnecessary.</p>
+        <p class="lead">Dear Clock turns a very expensive phone into a very cheap-looking electronic desk clock: a grey-green LCD, chunky plastic buttons, a label-maker label and a sale sticker that leaves glue behind. Under the time runs a line of your own words, and one button turns the whole display into a big sign. The time is correct. The alarm is real. The seriousness is entirely unnecessary.</p>
         <div class="features">
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">HELLO!</span>
+            <h3>Your words, on the clock.</h3>
+            <p>Tap the label and type anything, up to 40 characters (Chinese, Japanese and emoji too), or pick a quick message like BACK IN 5 MINUTES or HAPPY BIRTHDAY! It runs under the time on every model, in that model’s own dots: dark on the LCD, red on the LED, cyan on the VCR, amber on the calendar. Make it scroll, blink, type itself out or roll up, slow, normal or fast. Press MSG and the whole display becomes a big sign, with a small clock in the corner. Print it, and the same words are embossed on the label tape, click by click. Every message feature is free.</p>
+          </article>
           <article class="feat">
             <span class="chip" aria-hidden="true">88:88</span>
             <h3>Half-fold it. Stand it up.</h3>
@@ -496,7 +524,7 @@ a:hover{color:var(--link-hover)}
           <article class="feat">
             <span class="chip" aria-hidden="true">SET</span>
             <h3>Buttons that do things.</h3>
-            <p>SNOOZE·LIGHT turns on the backlight and, when nothing is ringing, prints a deadpan receipt. MODE shows the date for 5 seconds. 12/24, AL for the alarm, SET for the back of the clock. Tap the label to emboss a new one, up to 24 characters, click by click. You can even change the brand printed on the front.</p>
+            <p>SNOOZE·LIGHT turns on the backlight and, when nothing is ringing, prints a deadpan receipt. MODE shows the date for 5 seconds. MSG for the big sign, AL for the alarm, SET for the back of the clock (24-hour time lives there). Tap the label to write a new message, up to 40 characters, embossed click by click. You can even change the brand printed on the front.</p>
           </article>
           <article class="feat wide">
             <span class="chip led" aria-hidden="true">×4</span>
@@ -505,7 +533,7 @@ a:hover{color:var(--link-hover)}
               <li><b>Bargain LCD</b>Grey-green, slightly smug. Has a backlight. <em>INCLUDED</em></li>
               <li><b>Bedside LED</b>Red digits that light up the whole bedroom. <em>INCLUDED</em></li>
               <li><b>VCR, Never Set</b>Blinks forever, as if nobody set it. The time is correct, though. <em class="paid">THE WHOLE SHELF</em></li>
-              <li><b>Perpetual Calendar</b>Date, lunar date and a scrolling LED sign that shows your label. <em class="paid">THE WHOLE SHELF</em></li>
+              <li><b>Perpetual Calendar</b>Date, lunar date and a scrolling LED sign that shows your message. <em class="paid">THE WHOLE SHELF</em></li>
             </ul>
             <p>Try the paid models first: they just wear a DEMO UNIT sticker. Housings in ivory plastic, matte black, brushed silver and walnut.</p>
           </article>
@@ -534,8 +562,13 @@ a:hover{color:var(--link-hover)}
       <div class="card">
         <p class="kicker">繁體中文</p>
         <h2 id="zh-h">對不必要的事，非常認真。</h2>
-        <p class="lead">貴鐘把一支很貴的手機，變成一台看起來很便宜的電子桌鐘：灰綠色液晶、厚實的塑膠按鍵、標籤機印的標籤，還有一張撕掉會留下殘膠的特價貼紙。時間是準的，鬧鐘是真的，認真的程度則完全沒有必要。</p>
+        <p class="lead">貴鐘把一支很貴的手機，變成一台看起來很便宜的電子桌鐘：灰綠色液晶、厚實的塑膠按鍵、標籤機印的標籤，還有一張撕掉會留下殘膠的特價貼紙。時間下面跑著一行你自己打的字幕，按一顆鍵，整個螢幕就變成大字看板。時間是準的，鬧鐘是真的，認真的程度則完全沒有必要。</p>
         <div class="features">
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">HELLO!</span>
+            <h3>時鐘，加上你的字幕。</h3>
+            <p>點一下標籤，想打什麼就打什麼，最多 40 個字（中文、日文、emoji 都行），也可以挑一句常用的，像「老闆不在，五分鐘回來」或「生日快樂！」。每一款機型都會用自己的點陣，把它顯示在時間下面：液晶是深色點、LED 是紅色、錄影機是青綠色、萬年曆是琥珀色。可以選跑馬燈、閃爍、打字機或上捲，速度分慢、中、快。按 MSG，整個螢幕變成大字看板，時間縮到角落。按「列印」，同一句話還會一格一格壓印在標籤上。字幕的所有功能都免費。</p>
+          </article>
           <article class="feat">
             <span class="chip" aria-hidden="true">88:88</span>
             <h3>摺一半，立起來。</h3>
@@ -554,7 +587,7 @@ a:hover{color:var(--link-hover)}
           <article class="feat">
             <span class="chip" aria-hidden="true">SET</span>
             <h3>每顆按鍵都有用。</h3>
-            <p>SNOOZE·LIGHT 打開背光，沒有鬧鐘在響時，還會印出一張一本正經的小紙條。MODE 顯示日期 5 秒，12/24 切換時制，AL 設鬧鐘，SET 翻到時鐘背面。點一下標籤就能印新的，最多 24 個字，一格一格喀喀喀壓印出來。連正面印的品牌都能改。</p>
+            <p>SNOOZE·LIGHT 打開背光，沒有鬧鐘在響時，還會印出一張一本正經的小紙條。MODE 顯示日期 5 秒，MSG 切換大字看板，AL 設鬧鐘，SET 翻到時鐘背面（24 小時制也在那裡）。點一下標籤就能寫新的字幕，最多 40 個字，一格一格喀喀喀壓印出來。連正面印的品牌都能改。</p>
           </article>
           <article class="feat wide">
             <span class="chip led" aria-hidden="true">×4</span>
@@ -563,7 +596,7 @@ a:hover{color:var(--link-hover)}
               <li><b>百元液晶鐘</b>灰綠色，有點得意。有背光。 <em>內建</em></li>
               <li><b>床頭 LED 鐘</b>紅色數字，能照亮整間臥室。 <em>內建</em></li>
               <li><b>沒人設定過的錄影機</b>永遠在閃，像沒人設定過。但時間其實是對的。 <em class="paid">整排貨架</em></li>
-              <li><b>LED 萬年曆</b>國曆、農曆加跑馬燈，跑馬燈上跑的是你的標籤。 <em class="paid">整排貨架</em></li>
+              <li><b>LED 萬年曆</b>國曆、農曆加跑馬燈，跑馬燈上跑的是你的字幕。 <em class="paid">整排貨架</em></li>
             </ul>
             <p>付費機型可以先試用，只是會貼一張「展示品」貼紙。外殼有象牙白塑膠、霧面黑、髮絲紋銀和胡桃木。</p>
           </article>
@@ -592,8 +625,13 @@ a:hover{color:var(--link-hover)}
       <div class="card">
         <p class="kicker">日本語</p>
         <h2 id="ja-h">無駄なことに、全力でまじめ。</h2>
-        <p class="lead">Dear Clock は、とても高価なスマートフォンを、いかにも安そうな電子置き時計に変えるアプリです。くすんだ緑の液晶、ごついプラスチックのボタン、ラベルライターのラベル、そしてはがすとのりが残る特価シール。時刻は正確、アラームは本物。まじめさは、まったく必要ありません。</p>
+        <p class="lead">Dear Clock は、とても高価なスマートフォンを、いかにも安そうな電子置き時計に変えるアプリです。くすんだ緑の液晶、ごついプラスチックのボタン、ラベルライターのラベル、そしてはがすとのりが残る特価シール。時刻の下にはあなたが打った言葉が流れ、ボタンひとつで画面いっぱいの電光掲示にもなります。時刻は正確、アラームは本物。まじめさは、まったく必要ありません。</p>
         <div class="features">
+          <article class="feat wide">
+            <span class="chip led" aria-hidden="true">HELLO!</span>
+            <h3>時計に、あなたの言葉を。</h3>
+            <p>ラベルをタップして、好きな言葉を最大40文字まで（日本語、中国語、絵文字もOK）。「すぐ戻ります」「お誕生日おめでとう！」などの定番メッセージからも選べます。どの機種でも、その機種らしいドットで時刻の下に表示されます。液晶は黒いドット、LEDは赤、ビデオデッキは青緑、万年カレンダーは琥珀色。動きは「流れる」「点滅」「タイプ打ち」「せり上げ」、速さは「ゆっくり」「ふつう」「はやい」の3段階。MSG を押せば画面いっぱいの電光掲示になり、時刻は隅に小さく出ます。「印刷」を押すと、同じ言葉がラベルテープにも1文字ずつカチカチとエンボスされます。メッセージ機能はすべて無料です。</p>
+          </article>
           <article class="feat">
             <span class="chip" aria-hidden="true">88:88</span>
             <h3>半分に折って、立てる。</h3>
@@ -612,7 +650,7 @@ a:hover{color:var(--link-hover)}
           <article class="feat">
             <span class="chip" aria-hidden="true">SET</span>
             <h3>ボタンは全部、ちゃんと押せる。</h3>
-            <p>SNOOZE·LIGHT でバックライトが点灯し、アラームが鳴っていないときは真顔のレシートが出てきます。MODE で日付を5秒表示、12/24 で表示切り替え、AL でアラーム、SET で本体裏面へ。ラベルをタップすれば、最大24文字の新しいラベルが1文字ずつカチカチとエンボスされます。前面のブランド表記まで変えられます。</p>
+            <p>SNOOZE·LIGHT でバックライトが点灯し、アラームが鳴っていないときは真顔のレシートが出てきます。MODE で日付を5秒表示、MSG で大きな電光掲示、AL でアラーム、SET で本体裏面へ（24時間表示の切り替えもここ）。ラベルをタップすれば、最大40文字の新しいメッセージが書けて、1文字ずつカチカチとエンボスされます。前面のブランド表記まで変えられます。</p>
           </article>
           <article class="feat wide">
             <span class="chip led" aria-hidden="true">×4</span>
@@ -621,7 +659,7 @@ a:hover{color:var(--link-hover)}
               <li><b>激安液晶時計</b>くすんだ緑色で、ちょっとドヤ顔。バックライト付き。 <em>標準搭載</em></li>
               <li><b>枕元LED時計</b>寝室全体を照らしてしまう赤い数字。 <em>標準搭載</em></li>
               <li><b>未設定のビデオデッキ</b>誰も設定していないみたいに、永遠に点滅。でも時刻は合っています。 <em class="paid">棚まるごと</em></li>
-              <li><b>LED万年カレンダー</b>日付、旧暦、そしてあなたのラベルが流れる電光表示。 <em class="paid">棚まるごと</em></li>
+              <li><b>LED万年カレンダー</b>日付、旧暦、そしてあなたのメッセージが流れる電光表示。 <em class="paid">棚まるごと</em></li>
             </ul>
             <p>有料の機種も、「展示品」シールを貼った状態で先にお試しいただけます。本体の質感は、アイボリーのプラスチック、マットブラック、ヘアラインのシルバー、ウォールナット。</p>
           </article>
@@ -686,12 +724,14 @@ a:hover{color:var(--link-hover)}
       al: 'This is the website. The real alarm is in the app.',
       set: 'The back of the clock is in the app.',
       again: 'New film, new sticker. For when you want to film the unboxing again.',
-      hint: 'Peel the film. Press the buttons. Lay it flat.',
+      hint: 'Peel the film. Tap the label for a new message. Press MSG. Lay it flat.',
       stand: 'Stand it up', flat: 'Lay it flat', sound: 'Sound', pose: 'Pose',
       demo: 'Dear Clock, a demo you can press',
       filmLabel: 'Protective film. Peel it off.', stickerLabel: 'Sale sticker. Peel it off.', tagClose: 'Put the tag away',
-      tapeLabel: 'Label: %s. Print a new label.',
-      keys: { snooze: 'Snooze and light', mode: 'Mode', h24: '12- or 24-hour time', al: 'Alarm', set: 'Set' }
+      tapeLabel: 'Label: %s. Print a new message.',
+      typeOwn: 'In the app you type your own words, up to 40 characters.',
+      msgs: ['THIS IS A CLOCK', 'HAPPY BIRTHDAY!', 'IN A MEETING', 'I LOVE YOU', 'GO GO GO!'],
+      keys: { snooze: 'Snooze and light', mode: 'Mode', msg: 'Big sign', al: 'Alarm', set: 'Set' }
     },
     zh: {
       wk: ['日', '一', '二', '三', '四', '五', '六'],
@@ -702,12 +742,14 @@ a:hover{color:var(--link-hover)}
       al: '這裡是網站。真的鬧鐘在 App 裡。',
       set: '時鐘背面在 App 裡。',
       again: '重貼保護膜，補一張特價貼紙。想再拍一次開箱的時候用。',
-      hint: '撕掉保護膜，按按看，再把它平放。',
+      hint: '撕掉保護膜，點標籤換一句字幕，按 MSG，再把它平放。',
       stand: '立起來', flat: '平放', sound: '聲音', pose: '擺法',
       demo: '貴鐘，可以按的展示品',
       filmLabel: '保護膜。撕掉它。', stickerLabel: '特價貼紙。撕掉它。', tagClose: '收起吊牌',
-      tapeLabel: '標籤：%s。印一張新的。',
-      keys: { snooze: '貪睡和背光', mode: '模式', h24: '12 或 24 小時制', al: '鬧鐘', set: '設定' }
+      tapeLabel: '標籤：%s。換一句新的字幕。',
+      typeOwn: '在 App 裡可以自己打字，最多 40 個字。',
+      msgs: ['這是一台鐘', '生日快樂！', '會議中，請勿打擾', '我愛你', '加油加油！'],
+      keys: { snooze: '貪睡和背光', mode: '模式', msg: '大字看板', al: '鬧鐘', set: '設定' }
     },
     ja: {
       wk: ['日', '月', '火', '水', '木', '金', '土'],
@@ -718,17 +760,22 @@ a:hover{color:var(--link-hover)}
       al: 'ここはウェブサイトです。本物のアラームはアプリの中にあります。',
       set: '本体裏面はアプリの中にあります。',
       again: '保護フィルムと特価シールを貼り直しました。開封動画をもう一度撮りたいときにどうぞ。',
-      hint: 'フィルムをはがして、ボタンを押して、平らに置いてみてください。',
+      hint: 'フィルムをはがして、ラベルをタップ、MSG を押して、平らに置いてみてください。',
       stand: '立てる', flat: '平らに置く', sound: 'サウンド', pose: '置き方',
       demo: 'Dear Clock、押せるデモ機',
       filmLabel: '保護フィルム。はがします。', stickerLabel: '特価シール。はがします。', tagClose: 'タグを閉じる',
-      tapeLabel: 'ラベル：%s。新しいラベルを印刷します。',
-      keys: { snooze: 'スヌーズとライト', mode: 'モード', h24: '12時間または24時間表示', al: 'アラーム', set: 'セット' }
+      tapeLabel: 'ラベル：%s。新しいメッセージを印刷します。',
+      typeOwn: 'アプリでは、好きな言葉を最大40文字まで打てます。',
+      msgs: ['これは時計です', 'お誕生日おめでとう！', '会議中', '大好き', 'がんばれ！'],
+      keys: { snooze: 'スヌーズとライト', mode: 'モード', msg: '大きな電光掲示', al: 'アラーム', set: 'セット' }
     }
   };
   const t = S[lang];
-  const LABELS = [['THIS IS A CLOCK', 'en'], ['這是一台鐘', 'zh-Hant-TW'], ['これは時計です', 'ja']];
-  let labelIdx = { en: 0, zh: 1, ja: 2 }[lang];
+  // The label and the message on the display are the same text, as in the app. Tapping the label
+  // cycles through the app's quick messages, then shows off the other two languages.
+  const LABELS = t.msgs.map((m) => [m, BCP[lang]])
+    .concat([['THIS IS A CLOCK', 'en'], ['這是一台鐘', 'zh-Hant-TW'], ['これは時計です', 'ja']].filter((x) => x[1] !== BCP[lang]));
+  let labelIdx = 0;
 
   let h24 = false;
   try {
@@ -746,6 +793,10 @@ a:hover{color:var(--link-hover)}
   const minis = Array.from(d.querySelectorAll('[data-mini]')).map((g) => Array.from(g.querySelectorAll('.dg')));
   const calSecs = Array.from(d.querySelectorAll('#cal-secs .dg'));
   const ledPm = $('led-pm'), calDate = $('cal-date');
+  const sub = $('sub'), subText = $('sub-text'), signText = $('sign-text');
+  const signTime = Array.from(d.querySelectorAll('#sign-time .dg'));
+  const signColon = d.querySelector('#sign-time .cl');
+  const msgBtn = clock.querySelector('[data-act="msg"]');
   const poseBtns = Array.from(d.querySelectorAll('.tb[data-pose]'));
 
   /* ---- sound: a tiny square-wave piezo, only ever after a press ---- */
@@ -789,6 +840,7 @@ a:hover{color:var(--link-hover)}
   /* ---- state ---- */
   let bootUntil = 0, lightUntil = 0, dateUntil = 0, alarmOn = false;
   let filmOn = false, stickerOn = true, tagDismissed = false, printing = false, snoozeN = 0, lastMinute = -1, noteTimer = 0;
+  let signOn = false, message = LABELS[0][0], toldTypeOwn = false;
 
   const pad = (n) => String(n).padStart(2, '0');
   const setN = (el, n) => { if (el && el.getAttribute('data-n') !== n) el.setAttribute('data-n', n); };
@@ -809,15 +861,19 @@ a:hover{color:var(--link-hover)}
     pm.classList.toggle('on', boot || (!h24 && !showDate && h >= 12));
     bell.classList.toggle('on', boot || alarmOn);
     panel.classList.toggle('lit', ms < lightUntil);
+    fill(signTime, boot ? '8888' : time);
+    signColon.classList.toggle('on', boot || reduced() || now.getMilliseconds() < 500);
     minis.forEach((g) => fill(g, time));
     fill(calSecs, pad(now.getSeconds()));
     ledPm.classList.toggle('on', !h24 && h >= 12);
     if (m !== lastMinute) {
       lastMinute = m;
       calDate.textContent = now.getFullYear() + '·' + pad(mo) + '·' + pad(now.getDate()) + ' ' + WK[wd];
+      let spoken;
       try {
-        lcdSr.textContent = new Intl.DateTimeFormat(BCP[lang], { hour: 'numeric', minute: '2-digit', hour12: !h24 }).format(now);
-      } catch (e) { lcdSr.textContent = hourStr(h).trim() + ':' + pad(m); }
+        spoken = new Intl.DateTimeFormat(BCP[lang], { hour: 'numeric', minute: '2-digit', hour12: !h24 }).format(now);
+      } catch (e) { spoken = hourStr(h).trim() + ':' + pad(m); }
+      lcdSr.textContent = spoken + '. ' + message;
     }
   }
 
@@ -862,8 +918,27 @@ a:hover{color:var(--link-hover)}
     slapOn(sticker); stickerOn = true;
     spot.classList.remove('peeled');
   }
+  /* the message: a scrolling subtitle under the time, or the big sign when MSG is on */
+  function runMarquee() {
+    sub.classList.remove('run');
+    subText.style.animation = 'none';
+    if (reduced() || signOn) return;
+    sub.classList.add('run');
+    const travel = subText.offsetWidth;
+    if (!travel) return;
+    const pitch = (parseFloat(getComputedStyle(subText).fontSize) || 16) * 0.125;
+    const secs = Math.max(4, travel / (pitch * 14));   // about 14 dots a second, like the app's Normal
+    subText.style.animation = 'marq ' + secs.toFixed(2) + 's steps(' + Math.max(8, Math.round(travel / pitch)) + ',end) infinite';
+  }
+  function setMessage(text, l) {
+    message = text;
+    [subText, signText].forEach((el) => { el.textContent = text; el.setAttribute('lang', l); });
+    lastMinute = -1;
+    runMarquee();
+  }
   function showLabel(i, animate) {
     const text = LABELS[i][0];
+    setMessage(text, LABELS[i][1]);
     tapeText.setAttribute('lang', LABELS[i][1]);
     tape.setAttribute('aria-label', t.tapeLabel.replace('%s', text));
     if (!animate || reduced()) { tapeText.textContent = text; return; }
@@ -895,10 +970,20 @@ a:hover{color:var(--link-hover)}
   const act = {
     snooze() { lightUntil = Date.now() + 3000; say(t.lines[snoozeN++ % t.lines.length]); },
     mode() { dateUntil = Date.now() < dateUntil ? 0 : Date.now() + 5000; },
-    h24() { h24 = !h24; lastMinute = -1; },
+    msg() {
+      signOn = !signOn;
+      panel.classList.toggle('signing', signOn);
+      msgBtn.setAttribute('aria-pressed', String(signOn));
+      runMarquee();
+    },
     al() { alarmOn = !alarmOn; sfx.beep2(); say(t.al); },
     set() { if (!filmOn || !stickerOn) { reapply(); say(t.again); } else { say(t.set); } },
-    tape() { if (!printing) { labelIdx = (labelIdx + 1) % LABELS.length; showLabel(labelIdx, true); } },
+    tape() {
+      if (printing) return;
+      labelIdx = (labelIdx + 1) % LABELS.length;
+      showLabel(labelIdx, true);
+      if (!toldTypeOwn) { toldTypeOwn = true; say(t.typeOwn); }
+    },
     sticker() { peelSticker(); },
     film() { if (film.hasAttribute('data-dragged')) { film.removeAttribute('data-dragged'); return; } peelFilm(); },
     tagx() {
@@ -914,7 +999,7 @@ a:hover{color:var(--link-hover)}
     if (!el || !clock.contains(el)) return;
     const a = el.getAttribute('data-act');
     audio();
-    if (a === 'snooze' || a === 'mode' || a === 'h24' || a === 'set') sfx.click();
+    if (a === 'snooze' || a === 'mode' || a === 'msg' || a === 'set') sfx.click();
     if (act[a]) act[a]();
     render();
   });
@@ -960,6 +1045,7 @@ a:hover{color:var(--link-hover)}
   });
 
   poseBtns.forEach((b) => b.addEventListener('click', () => setPose(b.getAttribute('data-pose'))));
+  if (rm.addEventListener) rm.addEventListener('change', runMarquee); else if (rm.addListener) rm.addListener(runMarquee);
   snd.addEventListener('click', () => {
     soundOn = !soundOn;
     snd.setAttribute('aria-pressed', String(soundOn));
